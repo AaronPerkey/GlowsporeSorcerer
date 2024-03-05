@@ -15,9 +15,15 @@ public class DungeonGenerator : MonoBehaviour
 
     void GenerateDungeon()
     {
-        rootPartition = new Partition(new Rect(0, 0, dungeonWidth, dungeonHeight));
+        rootPartition = ScriptableObject.CreateInstance<Partition>();
+        rootPartition.Initialize(new Rect(0, 0, dungeonWidth, dungeonHeight), "RootPartition");
         SplitPartition(rootPartition);
         GenerateRooms(rootPartition);
+        ConnectRooms(rootPartition);
+
+        // Visualize the partition tree
+        Debug.Log("Partition Tree Visualization:");
+        VisualizePartitionTree(rootPartition, 0);
     }
 
     void SplitPartition(Partition partition)
@@ -57,11 +63,31 @@ public class DungeonGenerator : MonoBehaviour
 
         // Create room
         GameObject room = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        room.name = "Room_" + room.GetInstanceID(); // Assign a unique name to the room
         room.transform.position = new Vector3(roomX + roomWidth / 2, 0, roomY + roomHeight / 2);
         room.transform.localScale = new Vector3(roomWidth, 1, roomHeight);
     }
 
+    void CreatePartitionCube(Partition partition)
+    {
+        // Create a cube to represent the partition
+        GameObject partitionCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
+        // Disable the mesh renderer to make the cube invisible
+        Renderer renderer = partitionCube.GetComponent<Renderer>();
+        renderer.enabled = false;
+
+        // Add a collider to the cube
+        Collider collider = partitionCube.AddComponent<BoxCollider>();
+
+        // Set the collider as a trigger so it doesn't physically interact with other objects
+        collider.isTrigger = true;
+
+        // Position the cube at the center of the partition and scale it to match the partition's size
+        partitionCube.transform.position = new Vector3(partition.rect.x + partition.rect.width / 2, 0, partition.rect.y + partition.rect.height / 2);
+        partitionCube.transform.localScale = new Vector3(partition.rect.width, 1, partition.rect.height);
+
+    }
 
 
 
@@ -73,6 +99,7 @@ public class DungeonGenerator : MonoBehaviour
         {
             // This is a leaf, so it can be a room
             CreateRoom(partition);
+            CreatePartitionCube(partition);
         }
         else
         {
@@ -82,36 +109,78 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
+    void ConnectRooms(Partition partition)
+    {
+        if (partition == null || partition.IsLeaf()) return;
+
+        if (!partition.leftChild.IsLeaf() && !partition.rightChild.IsLeaf())
+        {
+            // Both children are non-leaf partitions
+            ConnectRooms(partition.leftChild);
+            ConnectRooms(partition.rightChild);
+        }
+        else if (!partition.leftChild.IsLeaf() && partition.rightChild.IsLeaf())
+        {
+            // Left child is a non-leaf partition and right child is a leaf partition
+            ConnectRooms(partition.leftChild);
+            CreateCorridor(partition.leftChild, partition.rightChild);
+        }
+        else if (partition.leftChild.IsLeaf() && !partition.rightChild.IsLeaf())
+        {
+            // Left child is a leaf partition and right child is a non-leaf partition
+            ConnectRooms(partition.rightChild);
+            CreateCorridor(partition.rightChild, partition.leftChild);
+        }
+        else if (partition.leftChild.IsLeaf() && partition.rightChild.IsLeaf())
+        {
+            // Both children are leaf partitions
+            CreateCorridor(partition.leftChild, partition.rightChild);
+        }
+    }
+
+    void VisualizePartitionTree(Partition partition, int depth)
+    {
+        if (partition == null) return;
+
+        // Print information about the current partition
+        string indentation = new string(' ', depth * 4);
+        Debug.Log(indentation + "Partition: " + partition.name + " - Rect: " + partition.rect);
+
+        // Visualize left child
+        VisualizePartitionTree(partition.leftChild, depth + 1);
+
+        // Visualize right child
+        VisualizePartitionTree(partition.rightChild, depth + 1);
+    }
+
+
     void CreateCorridor(Partition partitionA, Partition partitionB)
     {
+        // Find center points of each room
         Vector3 pointA = new Vector3(partitionA.rect.x + partitionA.rect.width / 2, 0, partitionA.rect.y + partitionA.rect.height / 2);
         Vector3 pointB = new Vector3(partitionB.rect.x + partitionB.rect.width / 2, 0, partitionB.rect.y + partitionB.rect.height / 2);
 
-        // Create corridor in between
+        // Create corridor between the center points
         GameObject corridor = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Vector3 position = (pointA + pointB) / 2;
         corridor.transform.position = position;
-
-        // Use the distance between points to set the scale
-        corridor.transform.localScale = new Vector3(Vector3.Distance(pointA, pointB), 1, 1); // Assuming a narrow corridor width of 1 unit
-
-        // Rotate the corridor to point between the two rooms
-        corridor.transform.LookAt(pointB);
+        corridor.transform.localScale = new Vector3(Vector3.Distance(pointA, pointB), 1, 1); // Adjust corridor width
     }
 
 
 }
 
-
-public class Partition
+public class Partition : ScriptableObject
 {
     public Rect rect;
     public Partition leftChild;
     public Partition rightChild;
+    public string Name; // Name of the partition
 
-    public Partition(Rect _rect)
+    public void Initialize(Rect _rect, string _name)
     {
         rect = _rect;
+        name = _name;
     }
 
     public bool IsLeaf() => leftChild == null && rightChild == null;
@@ -148,14 +217,21 @@ public class Partition
         // Create children based on the direction of the split
         if (splitH)
         {
-            leftChild = new Partition(new Rect(rect.x, rect.y, rect.width, split));
-            rightChild = new Partition(new Rect(rect.x, rect.y + split, rect.width, rect.height - split));
+            leftChild = ScriptableObject.CreateInstance<Partition>();
+            leftChild.Initialize(new Rect(rect.x, rect.y, rect.width, split), "LeftChild_" + GetInstanceID());
+
+            rightChild = ScriptableObject.CreateInstance<Partition>();
+            rightChild.Initialize(new Rect(rect.x, rect.y + split, rect.width, rect.height - split), "RightChild_" + GetInstanceID());
         }
         else
         {
-            leftChild = new Partition(new Rect(rect.x, rect.y, split, rect.height));
-            rightChild = new Partition(new Rect(rect.x + split, rect.y, rect.width - split, rect.height));
+            leftChild = ScriptableObject.CreateInstance<Partition>();
+            leftChild.Initialize(new Rect(rect.x, rect.y, split, rect.height), "LeftChild_" + GetInstanceID());
+
+            rightChild = ScriptableObject.CreateInstance<Partition>();
+            rightChild.Initialize(new Rect(rect.x + split, rect.y, rect.width - split, rect.height), "RightChild_" + GetInstanceID());
         }
+
 
         return true;
     }
