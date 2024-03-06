@@ -668,10 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 732027408}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
@@ -688,11 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &644218776 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-  m_PrefabInstance: {fileID: 452463679}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &732027407
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 732027408}
+  - component: {fileID: 732027409}
   m_Layer: 0
   m_Name: BodySocketInventory
   m_TagString: Untagged
@@ -723,8 +716,24 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 733578967}
-  m_Father: {fileID: 644218776}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732027409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732027407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d70f14758293343ac7fbc9b8fc051a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HMD: {fileID: 295826685}
+  bodySockets:
+  - gameObject: {fileID: 733578966}
+    heightRatio: 0.55
 --- !u!1 &733578966
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +749,7 @@ GameObject:
   - component: {fileID: 733578969}
   - component: {fileID: 733578968}
   m_Layer: 0
-  m_Name: BodySocket
+  m_Name: RightBodySocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,3 +1320,4 @@ SceneRoots:
   - {fileID: 452463679}
   - {fileID: 1757112220}
   - {fileID: 291815561}
+  - {fileID: 732027408}
