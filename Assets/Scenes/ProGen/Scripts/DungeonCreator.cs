@@ -55,15 +55,21 @@ public class DungeonCreator : MonoBehaviour
     {
         foreach (var wallPosition in possibleWallHorizontalPosition)
         {
-            CreateWall(wallParent, wallPosition, wallHorizontal);
+            Vector3 pos = wallPosition;
+            pos.x = pos.x + 0.6f;
+            pos.y = pos.y + 1.5f;
+            CreateWall(wallParent, pos, wallHorizontal);
         }
         foreach (var wallPosition in possibleWallVerticalPosition)
         {
-            CreateWall(wallParent, wallPosition, wallVertical);
+            Vector3 pos = wallPosition;
+            pos.z = pos.z + 0.6f;
+            pos.y = pos.y + 1.5f;
+            CreateWall(wallParent, pos, wallVertical);
         }
     }
 
-    private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
+    private void CreateWall(GameObject wallParent, Vector3 wallPosition, GameObject wallPrefab)
     {
         Instantiate(wallPrefab, wallPosition, Quaternion.identity, wallParent.transform);
     }
