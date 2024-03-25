@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SwordCollision : MonoBehaviour
 {
+    [SerializeField] public Healthbar healthbar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,17 @@ public class SwordCollision : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
+        Health health;
+        health = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Sword Collison");
+            
+            if( health != null)
+            {
+                health.currentHealth -= 5;
+                healthbar.UpdateHealthbar(health.maxHealth, health.currentHealth);
+            }
+
         }
     }
 }
