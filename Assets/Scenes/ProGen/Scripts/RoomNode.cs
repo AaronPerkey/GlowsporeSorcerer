@@ -13,4 +13,5 @@ public class RoomNode : Node
 
     public int Width { get => (int)(TopRightAreaCorner.x - BottomLeftAreaCorner.x); }
     public int Length { get => (int)(TopRightAreaCorner.y - BottomLeftAreaCorner.y); }
+
 }
