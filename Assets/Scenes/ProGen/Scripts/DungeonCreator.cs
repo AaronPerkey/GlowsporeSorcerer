@@ -17,6 +17,8 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
+    public GameObject Enemy;
+    public float spawnMargin = 1f; // Adjust the margin value as needed
     List<Vector3Int> possibleDoorVerticalPosition;
     List<Vector3Int> possibleDoorHorizontalPosition;
     List<Vector3Int> possibleWallHorizontalPosition;
@@ -40,6 +42,8 @@ public class DungeonCreator : MonoBehaviour
             corridorWidth);
         GameObject wallParent = new GameObject("WallParent");
         wallParent.transform.parent = transform;
+        GameObject enemyParent = new GameObject("EnemyParent");
+        enemyParent.transform.parent = transform;
         possibleDoorVerticalPosition = new List<Vector3Int>();
         possibleDoorHorizontalPosition = new List<Vector3Int>();
         possibleWallHorizontalPosition = new List<Vector3Int>();
@@ -47,8 +51,35 @@ public class DungeonCreator : MonoBehaviour
         for (int i = 0; i < listOfRooms.Count; i++)
         {
             CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
+            if(listOfRooms[i].GetType() == typeof(RoomNode))
+            {
+                SpawnEnemy(enemyParent, listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
+            }
+
         }
         CreateWalls(wallParent);
+    }
+
+    private void SpawnEnemy(GameObject enemyParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    {
+        // Convert corner positions to Vector3
+        Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
+        Vector3 topRightV = new Vector3(topRightCorner.x - spawnMargin, 0, topRightCorner.y - spawnMargin);
+
+        // Generate random points within the bounds of the room with margin
+        int numberOfEnemies = UnityEngine.Random.Range(1, 5); // Adjust as needed
+        
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            float randomX = UnityEngine.Random.Range(bottomLeftCorner.x + spawnMargin, topRightCorner.x - spawnMargin);
+            float randomZ = UnityEngine.Random.Range(bottomLeftCorner.y + spawnMargin, topRightCorner.y - spawnMargin);
+            Vector3 spawnPosition = new Vector3(randomX, 0, randomZ);
+
+            // Instantiate enemy at the random position
+            GameObject newEnemy = Instantiate(Enemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+
+            
+        }
     }
 
     private void CreateWalls(GameObject wallParent)
