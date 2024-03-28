@@ -1,37 +1,30 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Spell
-{
-    public GameObject gameObject;
-}
+using UnityEngine.XR.Interaction.Toolkit;
 
     public class CycleSpells : MonoBehaviour
 {
-    public Spell[] spells;
+    public GameObject[] spells;
     private int n;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         //Put some code to check if the track pad on the right hand is pressed to swich spells in the wand then have it run the method bellow
-        //ChangeSpell(spells);
+        //ChangeSpell(spells)
+        //XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        //grabbable.activated.AddListener(FireSpell);
     }
 
-    private int ChangeSpell(Spell[] spells)
+    public GameObject ChangeSpell()
     {
-        n += 1;
-        if (n > spells.Length)
+        
+        if (n == spells.Length)
         {
             n = 0;
         }
-        return n;
+        n += 1;
+        return spells[n];
     }
 }
