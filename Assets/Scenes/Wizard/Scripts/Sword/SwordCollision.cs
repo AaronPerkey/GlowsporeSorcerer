@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordCollision : MonoBehaviour
 {
     [SerializeField] public Healthbar healthbar;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class SwordCollision : MonoBehaviour
             
             if( health != null)
             {
-                health.currentHealth -= 5;
+                health.currentHealth -= damage;
                 healthbar.UpdateHealthbar(health.maxHealth, health.currentHealth);
             }
 
