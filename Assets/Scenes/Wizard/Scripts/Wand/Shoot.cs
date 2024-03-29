@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject spell;
+    CycleSpells cycleSpells;
     public Transform spawnPoint;
     public float firespeed = 0;
 
@@ -17,15 +17,9 @@ public class Shoot : MonoBehaviour
         grabbable.activated.AddListener(FireSpell);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void FireSpell(ActivateEventArgs arg)
     {
-        GameObject spawnedSpell = Instantiate(spell);
+        GameObject spawnedSpell = Instantiate(cycleSpells.ChangeSpell());
         spawnedSpell.transform.position = spawnPoint.position;
         spawnedSpell.GetComponent<Rigidbody>().velocity = spawnPoint.forward * firespeed;
         Destroy(spawnedSpell, 5);

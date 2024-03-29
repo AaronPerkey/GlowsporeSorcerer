@@ -13,12 +13,12 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
 
-        healthbar.UpdateHealthbar(maxHealth, currentHealth);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        healthbar.UpdateHealthbar(maxHealth, currentHealth);
     }
 }

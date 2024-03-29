@@ -18,6 +18,7 @@ public class DungeonCreator : MonoBehaviour
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
     public GameObject Enemy;
+    public GameObject rockPrefab;
     public float spawnMargin = 1f; // Adjust the margin value as needed
     List<Vector3Int> possibleDoorVerticalPosition;
     List<Vector3Int> possibleDoorHorizontalPosition;
@@ -44,6 +45,8 @@ public class DungeonCreator : MonoBehaviour
         wallParent.transform.parent = transform;
         GameObject enemyParent = new GameObject("EnemyParent");
         enemyParent.transform.parent = transform;
+        GameObject rockParent = new GameObject("rockParent");
+        rockParent.transform.parent = transform;
         possibleDoorVerticalPosition = new List<Vector3Int>();
         possibleDoorHorizontalPosition = new List<Vector3Int>();
         possibleWallHorizontalPosition = new List<Vector3Int>();
@@ -58,6 +61,22 @@ public class DungeonCreator : MonoBehaviour
 
         }
         CreateWalls(wallParent);
+    }
+
+    private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    {
+        // Adjust the position of corners by spawnMargin
+        Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
+        Vector3 bottomRightV = new Vector3(topRightCorner.x - spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
+        Vector3 topLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, topRightCorner.y - spawnMargin);
+        Vector3 topRightV = new Vector3(topRightCorner.x - spawnMargin, 0, topRightCorner.y - spawnMargin);
+
+        // Instantiate rocks at the adjusted positions
+        Instantiate(rockPrefab, bottomLeftV, Quaternion.identity, rockParent.transform);
+        Instantiate(rockPrefab, topLeftV, Quaternion.identity, rockParent.transform);
+        Instantiate(rockPrefab, bottomRightV, Quaternion.identity, rockParent.transform);
+        Instantiate(rockPrefab, topRightV, Quaternion.identity, rockParent.transform);
+
     }
 
     private void SpawnEnemy(GameObject enemyParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
