@@ -2197,6 +2197,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Change Spells",
+            "id": "26b3eb4d-0dc7-4c26-8df9-c8258a28a406",
+            "actions": [
+                {
+                    "name": "Change Spells",
+                    "type": "Button",
+                    "id": "f915a2cd-5320-493a-9327-a43c2f6e1162",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d91c8d3a-875e-41aa-a2f9-f26721e8ef19",
+                    "path": "<XRController>{RightHand}/{Primary2DAxisClick}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Change Spells",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

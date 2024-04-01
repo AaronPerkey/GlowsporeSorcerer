@@ -6,36 +6,56 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     public class CycleSpells : MonoBehaviour
 {
+    public InputActionReference inputActionReference;
     public GameObject[] spells;
-    public int n = 1;
+    public int n = 0;
+
+    private void Awake()
+    {
+        inputActionReference.action.started += ChangeSpell;
+    }
+
+    private void OnDestroy()
+    {
+        inputActionReference.action.started -= ChangeSpell;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //Put some code to check if the track pad on the right hand is pressed to swich spells in the wand then have it run the method bellow
-        //ChangeSpell(spells)
-        //XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
-        //grabbable.activated.AddListener(DoThing);
+
+        
     }
 
     private void Update()
     {
 
     }
-    private void DoThing(ActivateEventArgs arg)
+
+    private void OnPrimary2DAxisClick()
     {
-        ChangeSpell();
+
     }
 
-    public int ChangeSpell()
+    private void DoThing(ActivateEventArgs arg)
     {
-        
-        if (n == spells.Length)
+        //ChangeSpell();
+    }
+
+    private void ChangeSpellButton(InputAction.CallbackContext context)
+    {
+        bool isActive = !gameObject.activeSelf;
+        gameObject.SetActive(isActive);
+    }
+    public void ChangeSpell(InputAction.CallbackContext context)
+    {
+        Debug.Log(n);
+        //Debug.Log(spells.Length);
+        if (n == spells.Length || n >= spells.Length)
         {
             n = 0;
         }
         n += 1;
-        return n;
     }
 
     public GameObject GetSpell()
