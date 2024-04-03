@@ -17,7 +17,9 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
+    public GameObject XRPlayer;
     public GameObject Enemy;
+    public GameObject goalPrefab;
     public GameObject rockPrefab;
     public float spawnMargin = 1f; // Adjust the margin value as needed
     List<Vector3Int> possibleDoorVerticalPosition;
@@ -34,7 +36,7 @@ public class DungeonCreator : MonoBehaviour
     {
         DestroyAllChildren();
         DungeonMaker generator = new DungeonMaker(dungeonWidth, dungeonLength);
-        var listOfRooms = generator.CalculateDungeon(maxIterations,
+        var listOfRoomsAndHallways = generator.CalculateDungeon(maxIterations,
             roomWidthMin,
             roomLengthMin,
             roomBottomCornerModifier,
@@ -51,16 +53,50 @@ public class DungeonCreator : MonoBehaviour
         possibleDoorHorizontalPosition = new List<Vector3Int>();
         possibleWallHorizontalPosition = new List<Vector3Int>();
         possibleWallVerticalPosition = new List<Vector3Int>();
-        for (int i = 0; i < listOfRooms.Count; i++)
+        var listOfRooms = new List<Node>();
+        for (int i = 0; i < listOfRoomsAndHallways.Count; i++)
         {
-            CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
-            if(listOfRooms[i].GetType() == typeof(RoomNode))
+            CreateMesh(listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
+            if(listOfRoomsAndHallways[i].GetType() == typeof(RoomNode))
             {
-                SpawnEnemy(enemyParent, listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
+                SpawnEnemy(enemyParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
+                listOfRooms.Add(listOfRoomsAndHallways[i]);
             }
 
         }
+        
+        SpawnPlayerAndGoal(listOfRooms);
         CreateWalls(wallParent);
+    }
+
+    private void SpawnPlayerAndGoal(List<Node> listOfRooms)
+    {
+        Node startRoom = listOfRooms[UnityEngine.Random.Range(0, listOfRooms.Count)];
+        Vector3 playerPosition = new Vector3();
+        playerPosition.x = (startRoom.BottomLeftAreaCorner.x + startRoom.BottomRightAreaCorner.x) / 2;
+        playerPosition.z = (startRoom.BottomLeftAreaCorner.y +  startRoom.TopLeftAreaCorner.y) / 2;
+        XRPlayer.transform.position = playerPosition;
+
+        // Find the room farthest from the player
+        Node farthestRoom = null;
+        float maxDistance = float.MinValue;
+        foreach (Node room in listOfRooms)
+        {
+            Vector2 roomCenter = new Vector2((room.BottomLeftAreaCorner.x + room.BottomRightAreaCorner.x) / 2,
+                                             (room.BottomLeftAreaCorner.y + room.TopLeftAreaCorner.y) / 2);
+            float distance = Vector2.Distance(roomCenter, playerPosition);
+            if (distance > maxDistance)
+            {
+                maxDistance = distance;
+                farthestRoom = room;
+            }
+        }
+
+        Vector3 goalPosition = new Vector3();
+        goalPosition.x = (farthestRoom.BottomLeftAreaCorner.x + farthestRoom.BottomRightAreaCorner.x) / 2;
+        goalPosition.z = (farthestRoom.BottomLeftAreaCorner.y + farthestRoom.TopLeftAreaCorner.y) / 2;
+        Instantiate(goalPrefab, goalPosition, Quaternion.identity);
+
     }
 
     private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
