@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordCollision : MonoBehaviour
+public class Zap : MonoBehaviour
 {
     private Healthbar healthbar;
     public int damage;
@@ -13,13 +13,13 @@ public class SwordCollision : MonoBehaviour
         health = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
-            if( health != null)
+
+            if (health != null)
             {
                 health.currentHealth -= damage;
                 healthbar.UpdateHealthbar(health.maxHealth, health.currentHealth);
             }
-
+            Destroy(gameObject);
         }
     }
 }
