@@ -385,12 +385,12 @@ MonoBehaviour:
   roomBottomCornerModifier: 0.1
   roomTopCornerMidifier: 0.9
   roomOffset: 1
-  wallVertical: {fileID: 7349378848484735310, guid: 540d6cc49b76e1e4ea981e919aed4ac2, type: 3}
-  wallHorizontal: {fileID: 7349378848484735310, guid: 540d6cc49b76e1e4ea981e919aed4ac2, type: 3}
+  wallNoSupport: {fileID: 4964542576630972498, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
+  wallWithSupport: {fileID: 6240206488090968454, guid: 67aee5a7d35f6ae4992bacdaed4866eb, type: 3}
   XRPlayer: {fileID: 2065565820}
   Enemy: {fileID: 5125346145785119065, guid: e8b4f170059ed6e44a389da6fb7a809e, type: 3}
   goalPrefab: {fileID: 3935430413931181975, guid: 646649b268860ea4f90c5a90664bb8b1, type: 3}
-  rockPrefab: {fileID: 3504348861864051548, guid: f96c8f5d7613ff44e879c1ee5fbf2f81, type: 3}
+  rockPrefab: {fileID: 7601533125209103191, guid: 43d54a8b594745d4ba886d78c07b2360, type: 3}
   spawnMargin: 1
 --- !u!1 &1453190540
 GameObject:

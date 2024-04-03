@@ -16,7 +16,7 @@ public class DungeonCreator : MonoBehaviour
     public float roomTopCornerMidifier;
     [Range(0, 2)]
     public int roomOffset;
-    public GameObject wallVertical, wallHorizontal;
+    public GameObject wallNoSupport, wallWithSupport;
     public GameObject XRPlayer;
     public GameObject Enemy;
     public GameObject goalPrefab;
@@ -60,12 +60,14 @@ public class DungeonCreator : MonoBehaviour
             if(listOfRoomsAndHallways[i].GetType() == typeof(RoomNode))
             {
                 SpawnEnemy(enemyParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
+                //createRocks(rockParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
                 listOfRooms.Add(listOfRoomsAndHallways[i]);
             }
 
         }
-        
+
         SpawnPlayerAndGoal(listOfRooms);
+        
         CreateWalls(wallParent);
     }
 
@@ -143,15 +145,30 @@ public class DungeonCreator : MonoBehaviour
         {
             Vector3 pos = wallPosition;
 
+            int random = UnityEngine.Random.Range(0, 10);
+            if(random > 7)
+            {
+                CreateWall(wallParent, pos, wallWithSupport, true);
+            }
+            else
+            {
+                CreateWall(wallParent, pos, wallNoSupport, true);
+            }
             
-            CreateWall(wallParent, pos, wallHorizontal, true);
         }
         foreach (var wallPosition in possibleWallVerticalPosition)
         {
             Vector3 pos = wallPosition;
 
-            
-            CreateWall(wallParent, pos, wallVertical, false);
+            int random = UnityEngine.Random.Range(0, 10);
+            if (random > 7)
+            {
+                CreateWall(wallParent, pos, wallWithSupport, false);
+            }
+            else
+            {
+                CreateWall(wallParent, pos, wallNoSupport, false);
+            }
         }
     }
 
