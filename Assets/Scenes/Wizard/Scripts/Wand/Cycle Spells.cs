@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
     public InputActionReference inputActionReference;
     public GameObject[] spells;
     public int n = 0;
+    bool active = false;
 
     private void Awake()
     {
@@ -20,42 +21,24 @@ using UnityEngine.XR.Interaction.Toolkit;
         inputActionReference.action.started -= ChangeSpell;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        
-    }
-
-    private void Update()
-    {
-
-    }
-
-    private void OnPrimary2DAxisClick()
-    {
-
-    }
-
-    private void DoThing(ActivateEventArgs arg)
-    {
-        //ChangeSpell();
-    }
-
     private void ChangeSpellButton(InputAction.CallbackContext context)
     {
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
     }
+
     public void ChangeSpell(InputAction.CallbackContext context)
     {
-        Debug.Log(n);
-        //Debug.Log(spells.Length);
-        if (n == spells.Length || n >= spells.Length)
+        if (active)
+        {
+            n += 1;
+        }
+        
+        if (n == 3 || !active)
         {
             n = 0;
+            active = true;
         }
-        n += 1;
     }
 
     public GameObject GetSpell()
