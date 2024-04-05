@@ -14,7 +14,7 @@ public class Dummy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health.currentHealth == 0)
+        if (health.currentHealth <= 0)
         {
             health.currentHealth = health.maxHealth;
         }

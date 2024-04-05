@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  _timerGameObject: {fileID: 2909926434929111598, guid: 65d2697bfba196f4cba0125faf43cd71, type: 3}
 --- !u!114 &7361957626229287944
 MonoBehaviour:
   m_ObjectHideFlags: 0
