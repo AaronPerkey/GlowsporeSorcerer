@@ -6,17 +6,14 @@ using UnityEngine;
 public class FireSpell : MonoBehaviour
 {
     private Healthbar healthbar;
-    private int x;
-    public int damage;
-    private int timeDelay = 1;
-    Timer timer;
-    public GameObject _timerGameObject;
     Health health;
 
-    void Start()
-    {
-        timer = GetComponent<Timer>();
-    }
+    public int damage;
+    private bool collided = false;
+
+    private float nextTimeToDamage = 0f;
+    private float damageRate = 1.5f;
+    
 
     void OnTriggerEnter(Collider collision)
     {
@@ -26,19 +23,15 @@ public class FireSpell : MonoBehaviour
             
             healthbar = collision.GetComponentInChildren<Healthbar>();
             health = collision.gameObject.GetComponent<Health>();
-            Instantiate(_timerGameObject, new Vector3(0, -1, 0), Quaternion.identity);
-            Destroy(gameObject);
-            timer.DelaySeconds(7);
-            
-
-
+            collided = true;
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (timer.timeIsRunning && (Time.timeSinceLevelLoad * 10) % 10 == 0)
+        if (collided && Time.time >= nextTimeToDamage)
         {
+            nextTimeToDamage = Time.time + 1f / damageRate;
             FireDamage(health);
         }
     }
@@ -48,8 +41,6 @@ public class FireSpell : MonoBehaviour
             if (health != null)
             {
                 health.currentHealth -= damage;
-
-
             }
         }
 

@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 {
     public InputActionReference inputActionReference;
     public GameObject[] spells;
-    public int n = 0;
+    public int n  = 0;
     bool active = false;
 
     private void Awake()
@@ -19,12 +19,6 @@ using UnityEngine.XR.Interaction.Toolkit;
     private void OnDestroy()
     {
         inputActionReference.action.started -= ChangeSpell;
-    }
-
-    private void ChangeSpellButton(InputAction.CallbackContext context)
-    {
-        bool isActive = !gameObject.activeSelf;
-        gameObject.SetActive(isActive);
     }
 
     public void ChangeSpell(InputAction.CallbackContext context)
@@ -44,6 +38,25 @@ using UnityEngine.XR.Interaction.Toolkit;
     public GameObject GetSpell()
     {
         GameObject spell = spells[n];
+        return spell;
+    }
+
+
+    public GameObject GetZapSpell()
+    {
+        GameObject spell = spells[0];
+        return spell;
+    }
+
+    public GameObject GetFireSpell()
+    {
+        GameObject spell = spells[1];
+        return spell;
+    }
+
+    public GameObject GetFreezeSpell()
+    {
+        GameObject spell = spells[2];
         return spell;
     }
 }
