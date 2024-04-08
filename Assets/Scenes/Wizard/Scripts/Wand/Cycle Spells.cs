@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     public class CycleSpells : MonoBehaviour
 {
+    [HideInInspector] public Shoot shoot;
     public InputActionReference inputActionReference;
     public GameObject[] spells;
     public int n  = 0;
@@ -13,6 +14,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     private void Awake()
     {
+        shoot = GetComponent<Shoot>();
         inputActionReference.action.started += ChangeSpell;
     }
 
@@ -23,6 +25,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     public void ChangeSpell(InputAction.CallbackContext context)
     {
+        shoot.lastShootTime = 0;
         if (active)
         {
             n += 1;

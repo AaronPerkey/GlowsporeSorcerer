@@ -10,7 +10,7 @@ public class Shoot : MonoBehaviour
 
     public float firespeed;
     private float fireRate;
-    private float lastShootTime = 0;
+    [HideInInspector] public float lastShootTime = 0;
 
     private void Awake()
     {
@@ -26,35 +26,41 @@ public class Shoot : MonoBehaviour
 
     public void FireSpell(ActivateEventArgs arg)
     {
-        FireRate();
-        Debug.Log("fire rate " + fireRate);
-        if (Time.time > lastShootTime + fireRate)
+        
+        if (Time.time >= (lastShootTime + fireRate))
         {
             GameObject spawnedSpell = Instantiate(cycleSpells.GetSpell());
             spawnedSpell.transform.position = spawnPoint.position;
             spawnedSpell.GetComponent<Rigidbody>().velocity = spawnPoint.forward * firespeed;
             Destroy(spawnedSpell, 5);
             lastShootTime = Time.time;
+            fireRate = FireRate();
         }
+
+        Debug.Log("fire rate " + fireRate);
     }
 
     public float FireRate()
     {
         GameObject spell = cycleSpells.GetSpell();
-        if (spell = cycleSpells.GetZapSpell())
+        float x = 0;
+        if (spell == cycleSpells.GetZapSpell())
         {
-            fireRate = 1;
+            x = 1;
+            Debug.Log("I'm getting called");
         }
-        if (spell = cycleSpells.GetFireSpell())
+        if (spell == cycleSpells.GetFireSpell())
         {
-            fireRate = 4;
+            x = 4;
+            Debug.Log("I'm also getting called");
         }
-        else
+        if(spell == cycleSpells.GetFreezeSpell())
         {
-            fireRate = 12;
+            x = 12; Debug.Log("I'm also also getting called");
         }
         Debug.Log("cs.Spell " + cycleSpells.spells[cycleSpells.n]);
-        Debug.Log("Spell " + cycleSpells.GetSpell());
-        return fireRate;
+        Debug.Log("get Spell " + cycleSpells.GetSpell());
+        Debug.Log("fire Spell " + cycleSpells.GetFireSpell());
+        return x;
     }
 }

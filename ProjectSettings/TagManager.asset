@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Rock
+  - Anchor
+  - Hallway
   layers:
   - Default
   - TransparentFX

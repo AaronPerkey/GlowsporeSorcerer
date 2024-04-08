@@ -20,7 +20,7 @@ public class DungeonCreator : MonoBehaviour
     public GameObject XRPlayer;
     public GameObject Enemy;
     public GameObject goalPrefab;
-    public GameObject rockPrefab;
+    public GameObject TopRightRocks, TopLeftRocks, BottomRightRocks, BottomLeftRocks;
     public float spawnMargin = 1f; // Adjust the margin value as needed
     List<Vector3Int> possibleDoorVerticalPosition;
     List<Vector3Int> possibleDoorHorizontalPosition;
@@ -56,12 +56,17 @@ public class DungeonCreator : MonoBehaviour
         var listOfRooms = new List<Node>();
         for (int i = 0; i < listOfRoomsAndHallways.Count; i++)
         {
-            CreateMesh(listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
+            
             if(listOfRoomsAndHallways[i].GetType() == typeof(RoomNode))
             {
+                CreateMesh(listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner, false);
                 SpawnEnemy(enemyParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
-                //createRocks(rockParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
+                createRocks(rockParent, listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner);
                 listOfRooms.Add(listOfRoomsAndHallways[i]);
+            }
+            else
+            {
+                CreateMesh(listOfRoomsAndHallways[i].BottomLeftAreaCorner, listOfRoomsAndHallways[i].TopRightAreaCorner, true);
             }
 
         }
@@ -110,10 +115,10 @@ public class DungeonCreator : MonoBehaviour
         Vector3 topRightV = new Vector3(topRightCorner.x - spawnMargin, 0, topRightCorner.y - spawnMargin);
 
         // Instantiate rocks at the adjusted positions
-        Instantiate(rockPrefab, bottomLeftV, Quaternion.identity, rockParent.transform);
-        Instantiate(rockPrefab, topLeftV, Quaternion.identity, rockParent.transform);
-        Instantiate(rockPrefab, bottomRightV, Quaternion.identity, rockParent.transform);
-        Instantiate(rockPrefab, topRightV, Quaternion.identity, rockParent.transform);
+        Instantiate(BottomLeftRocks, bottomLeftV, Quaternion.identity, rockParent.transform);
+        Instantiate(TopLeftRocks, topLeftV, Quaternion.identity, rockParent.transform);
+        Instantiate(BottomRightRocks, bottomRightV, Quaternion.identity, rockParent.transform);
+        Instantiate(TopRightRocks, topRightV, Quaternion.identity, rockParent.transform);
 
     }
 
@@ -185,7 +190,7 @@ public class DungeonCreator : MonoBehaviour
         
     }
 
-    private void CreateMesh(Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    private void CreateMesh(Vector2 bottomLeftCorner, Vector2 topRightCorner, bool isHallway)
     {
         Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x, 0, bottomLeftCorner.y);
         Vector3 bottomRightV = new Vector3(topRightCorner.x, 0, bottomLeftCorner.y);
@@ -227,6 +232,24 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
+
+        // Check if it's a hallway and add a collider accordingly
+        if (isHallway)
+        {
+            // Add BoxCollider component
+            BoxCollider collider = dungeonFloor.AddComponent<BoxCollider>();
+
+            // Set collider size and position
+            Vector3 colliderSize = new Vector3(topRightCorner.x - bottomLeftCorner.x, 0.1f, topRightCorner.y - bottomLeftCorner.y);
+            Vector3 colliderCenter = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2f, 0.05f, (bottomLeftCorner.y + topRightCorner.y) / 2f);
+
+            collider.size = colliderSize;
+            collider.center = colliderCenter;
+
+            collider.isTrigger = true;
+
+            dungeonFloor.gameObject.tag = "Hallway";
+        }
 
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
