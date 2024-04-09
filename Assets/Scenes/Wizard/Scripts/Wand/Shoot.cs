@@ -47,20 +47,15 @@ public class Shoot : MonoBehaviour
         if (spell == cycleSpells.GetZapSpell())
         {
             x = 1;
-            Debug.Log("I'm getting called");
         }
         if (spell == cycleSpells.GetFireSpell())
         {
             x = 4;
-            Debug.Log("I'm also getting called");
         }
         if(spell == cycleSpells.GetFreezeSpell())
         {
             x = 12; Debug.Log("I'm also also getting called");
         }
-        Debug.Log("cs.Spell " + cycleSpells.spells[cycleSpells.n]);
-        Debug.Log("get Spell " + cycleSpells.GetSpell());
-        Debug.Log("fire Spell " + cycleSpells.GetFireSpell());
         return x;
     }
 }

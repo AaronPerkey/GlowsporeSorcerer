@@ -6,21 +6,62 @@ using UnityEngine.XR.Interaction.Toolkit;
 
     public class CycleSpells : MonoBehaviour
 {
+    private XRGrabInteractable grabInteractable;
+    private bool listenersAdded = false;
+
     [HideInInspector] public Shoot shoot;
-    public InputActionReference inputActionReference;
+    public Transform spawnPoint;
+
+    public InputActionReference changeSpellReference;
+    public InputActionReference gripRightRefference;
+    public InputActionReference gripLeftRefference;
+
     public GameObject[] spells;
+    public GameObject[] spellIndicators;
+    public GameObject spellIndicator;
     public int n  = 0;
     bool active = false;
 
     private void Awake()
     {
         shoot = GetComponent<Shoot>();
-        inputActionReference.action.started += ChangeSpell;
+
+        gripRightRefference.action.performed += OnButtonPress;
+        gripLeftRefference.action.performed += OnButtonPress;
     }
 
-    private void OnDestroy()
+    private void onDestroy()
     {
-        inputActionReference.action.started -= ChangeSpell;
+        // Unsubscribe from events to prevent memory leaks
+        gripRightRefference.action.performed -= OnButtonPress;
+        gripLeftRefference.action.performed -= OnButtonPress;
+        changeSpellReference.action.performed -= ChangeSpell;
+        gripRightRefference.action.canceled -= OnButtonRelease;
+        gripLeftRefference.action.canceled -= OnButtonRelease;
+    }
+
+    private void OnButtonPress(InputAction.CallbackContext context)
+    {
+        SpellIndicator();
+        changeSpellReference.action.performed += ChangeSpell;
+        gripRightRefference.action.canceled += OnButtonRelease;
+        gripLeftRefference.action.canceled += OnButtonRelease;
+    }
+
+    void OnButtonRelease(InputAction.CallbackContext context)
+    {
+        Destroy(spellIndicator);
+    }
+
+    private void Update()
+    {
+        // Check if spawnPoint and spellIndicators[n] are not null, and if n is within bounds
+        if (spawnPoint != null && n >= 0 && n < spellIndicators.Length && spellIndicators[n] != null)
+        {
+            // Update the position of the spell indicator to match the position of the spawnPoint
+            spellIndicator.transform.position = spawnPoint.position;
+            spellIndicator.transform.rotation = spawnPoint.rotation;
+        }
     }
 
     public void ChangeSpell(InputAction.CallbackContext context)
@@ -36,6 +77,21 @@ using UnityEngine.XR.Interaction.Toolkit;
             n = 0;
             active = true;
         }
+        SpellIndicator();
+        Debug.Log("spell Changed");
+    }
+
+    private void SpellIndicator()
+    {
+        Destroy(spellIndicator);
+        spellIndicator = Instantiate(GetSpellIndicator(), spawnPoint);
+
+    }
+
+    public GameObject GetSpellIndicator()
+    {
+        GameObject spellIndicator = spellIndicators[n];
+        return spellIndicator;
     }
 
     public GameObject GetSpell()
