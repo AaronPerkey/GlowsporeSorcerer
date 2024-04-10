@@ -8,6 +8,7 @@ TagManager:
   - Rock
   - Anchor
   - Hallway
+  - Generator
   layers:
   - Default
   - TransparentFX
