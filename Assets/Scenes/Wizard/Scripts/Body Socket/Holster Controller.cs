@@ -13,7 +13,6 @@ public class HolsterTracker : MonoBehaviour
     private Vector3 lastCameraPosition; // Store the last position of the camera;
 
     public float rotationSpeed = 50f; // Adjust this to control the speed of holster rotation
-    public Transform player; // Reference to the player's transform
     public InputActionReference inputActionReference;
     private InputAction thumbstickAction;
 
@@ -98,17 +97,17 @@ public class HolsterTracker : MonoBehaviour
         float rotationAmountHorizontal = thumbstickHorizontalInput * rotationSpeed * Time.deltaTime;
         float rotationAmountVertical = thumbstickVerticalInput * rotationSpeed * Time.deltaTime;
 
-        // Combine the horizontal and vertical rotation amounts (you may need to adjust this based on your setup)
+        // Combine the horizontal and vertical rotation amounts
         float totalRotationAmount = (rotationAmountHorizontal + rotationAmountVertical) / 2f;
 
         // Get the forward direction of the player
-        Vector3 playerForward = player.forward;
+        Vector3 playerForward = cameraTransform.forward;
         playerForward.y = 0f; // Ignore vertical component
 
         // Rotate the holster around the player's position, based on player forward direction
         for (int i = 0; i < holsters.Count; i++)
         {
-            holsters[i].RotateAround(player.position, playerForward.normalized, totalRotationAmount);
+            transform.RotateAround(holsters[i].transform.position, pivotPoint.position, totalRotationAmount);
         }
         //transform.RotateAround(player.position, playerForward.normalized, totalRotationAmount);
         //Debug.Log("Players position x: " + player.position.x + " y: " + player.position.y);
