@@ -58,54 +58,58 @@ public class HolsterTracker : MonoBehaviour
     void Update()
     {
 
-        void Update()
+        // Check if the camera transform is assigned
+        if (cameraTransform != null)
         {
-            // Check if the camera transform is assigned
-            if (cameraTransform != null)
+            // Update the position of each holster to maintain the relative offset
+            for (int i = 0; i < holsters.Count; i++)
             {
-                // Calculate the player's velocity based on the change in camera position
-                Vector3 velocity = (cameraTransform.position - lastCameraPosition) / Time.deltaTime;
-
-                // Get the direction of movement
-                Vector3 moveDirection = velocity.normalized;
-
-                // Rotate the holsters towards the player's movement direction
-                RotateHolster(moveDirection);
-
-                // Update lastCameraPosition
-                lastCameraPosition = cameraTransform.position;
+                holsters[i].position = cameraTransform.position + holsterOffsets[i];
             }
-            else
-            {
-                Debug.LogWarning("Camera transform is not assigned to the HolsterTracker script!");
-            }
- 
-            if (inputActionReference != null)
-            {
-                // Get thumbstick input from the XR Controller
-                Vector2 thumbstickInput = thumbstickAction.ReadValue<Vector2>();
+            // Calculate the player's velocity based on the change in camera position
+            Vector3 velocity = (cameraTransform.position - lastCameraPosition) / Time.deltaTime;
 
-                // Rotate the holsters around the player based on the input
-                RotateHolster(thumbstickInput);
-            }
+            // Get the direction of movement
+            Vector3 moveDirection = velocity.normalized;
+
+            // Update lastCameraPosition
+            lastCameraPosition = cameraTransform.position;
         }
+        else
+        {
+            Debug.LogWarning("Camera transform is not assigned to the HolsterTracker script!");
+        }
+        if (inputActionReference != null)
+        {
+            // Get forward movement input from the XR Controller thumbstick
+            Vector2 thumbstickInput = thumbstickAction.ReadValue<Vector2>();
+
+
+            // Rotate the holster around the player based on the input
+            RotateHolster(thumbstickInput.x, thumbstickInput.y);
+
+        }
+
     }
-    private void RotateHolster(Vector2 thumbstickInput)
+    private void RotateHolster(float thumbstickHorizontalInput, float thumbstickVerticalInput)
     {
-        // Get the forward direction of the player in XR space
-        Vector3 forwardDirection = cameraTransform.forward;
-        forwardDirection.y = 0f; // Ignore vertical component
+        // Calculate rotation angles based on the thumbstick input
+        float rotationAmountHorizontal = thumbstickHorizontalInput * rotationSpeed * Time.deltaTime;
+        float rotationAmountVertical = thumbstickVerticalInput * rotationSpeed * Time.deltaTime;
 
-        // Calculate the rotation angle based on the thumbstick input
-        Quaternion rotation = Quaternion.AngleAxis(thumbstickInput.x * rotationSpeed * Time.deltaTime, Vector3.up);
+        // Combine the horizontal and vertical rotation amounts
+        float totalRotationAmount = (rotationAmountHorizontal + rotationAmountVertical) / 2f;
 
-        // Rotate the forward direction according to the thumbstick input
-        forwardDirection = rotation * forwardDirection;
+        // Get the forward direction of the player
+        Vector3 playerForward = cameraTransform.forward;
+        playerForward.y = 0f; // Ignore vertical component
 
-        // Smoothly rotate each holster towards the new forward direction
+        // Rotate the holster around the player's position, based on player forward direction
         for (int i = 0; i < holsters.Count; i++)
         {
-            holsters[i].rotation = Quaternion.LookRotation(forwardDirection, Vector3.up);
+            transform.RotateAround(holsters[i].transform.position, pivotPoint.position, totalRotationAmount);
         }
+        //transform.RotateAround(player.position, playerForward.normalized, totalRotationAmount);
+        //Debug.Log("Players position x: " + player.position.x + " y: " + player.position.y);
     }
 }
