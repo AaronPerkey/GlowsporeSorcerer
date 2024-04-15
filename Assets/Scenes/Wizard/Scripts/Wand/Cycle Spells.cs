@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-    public class CycleSpells : MonoBehaviour
+public class CycleSpells : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
     private bool listenersAdded = false;
@@ -19,7 +19,7 @@ using UnityEngine.XR.Interaction.Toolkit;
     public GameObject[] spells;
     public GameObject[] spellIndicators;
     public GameObject spellIndicator;
-    public int n  = 0;
+    public int n = 0;
     bool active = false;
 
     private void Awake()
@@ -71,7 +71,7 @@ using UnityEngine.XR.Interaction.Toolkit;
         {
             n += 1;
         }
-        
+
         if (n == 3 || !active)
         {
             n = 0;
