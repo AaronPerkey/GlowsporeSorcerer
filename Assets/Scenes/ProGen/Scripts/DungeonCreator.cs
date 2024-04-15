@@ -102,7 +102,10 @@ public class DungeonCreator : MonoBehaviour
         Vector3 goalPosition = new Vector3();
         goalPosition.x = (farthestRoom.BottomLeftAreaCorner.x + farthestRoom.BottomRightAreaCorner.x) / 2;
         goalPosition.z = (farthestRoom.BottomLeftAreaCorner.y + farthestRoom.TopLeftAreaCorner.y) / 2;
-        Instantiate(goalPrefab, goalPosition, Quaternion.identity);
+        GameObject goal = Instantiate(goalPrefab, goalPosition, Quaternion.identity);
+
+        // Set the parent of the goal to DungeonGenerator object's transform
+        goal.transform.parent = transform;
 
     }
 

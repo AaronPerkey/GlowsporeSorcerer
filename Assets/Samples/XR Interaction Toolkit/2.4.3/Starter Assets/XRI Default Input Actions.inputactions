@@ -2,6 +2,174 @@
     "name": "XRI Default Input Actions",
     "maps": [
         {
+            "name": "XRI RightHand Locomotion",
+            "id": "6dcf6f98-dded-4846-bd26-ecc66e87596b",
+            "actions": [
+                {
+                    "name": "Teleport Select",
+                    "type": "Value",
+                    "id": "2a090ff7-1190-429f-acc8-6fff5b007fdd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Teleport Mode Activate",
+                    "type": "Value",
+                    "id": "e8c85e4a-e124-44b4-ae5c-96bf27147c72",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Teleport Mode Cancel",
+                    "type": "Button",
+                    "id": "8a0617ca-386a-4c2a-94ac-74d6b435574e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Teleport Direction",
+                    "type": "Value",
+                    "id": "f67a381a-d7ec-44c5-b2d5-0575c854535b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "1036d169-8e88-436f-8e39-6b7b03ed8ec1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "2f3fb01e-408e-4ddc-9974-ba243986738e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Grab Move",
+                    "type": "Button",
+                    "id": "592987bd-06aa-4cc2-8559-6baba11632c7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Snap Turn",
+                    "type": "Value",
+                    "id": "e77570f2-1f8b-43a2-92d3-1acf81943176",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cba236c9-c13d-49d5-ae85-3f3d942ee850",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Teleport Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f016cb2-76d7-4638-b9d6-305d29e66494",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=1)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Teleport Mode Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fb2280b-cc85-4c72-be03-cce56ac39459",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Teleport Mode Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca00dc0f-0fc7-4e8e-83c1-64e79bb5c695",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9af9d7e2-de9c-4380-b0c5-b5f7a9e8a18b",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "Continuous Move",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "061e07ab-9e1d-470f-8abb-8cf7bb97e615",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Noncontinuous Move",
+                    "action": "Teleport Direction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e4f912ac-1d00-4584-aa5b-cfae8972bb92",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grab Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae3290b8-bc5a-4e7f-a60f-a26f0e7fbc42",
+                    "path": "<XRController>{RightHand}/Primary2DAxis",
+                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Snap Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "XRI Head",
             "id": "09ff3ccc-21b4-4346-a3a2-7c978b5af892",
             "actions": [
@@ -1566,174 +1734,6 @@
             ]
         },
         {
-            "name": "XRI RightHand Locomotion",
-            "id": "99ce76d3-82c5-4289-9670-2ecffa6833fd",
-            "actions": [
-                {
-                    "name": "Teleport Select",
-                    "type": "Value",
-                    "id": "02e43582-8973-4940-af06-dff6158e3df2",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Teleport Mode Activate",
-                    "type": "Value",
-                    "id": "a6c7231d-c55d-4dd4-9e87-877bb5522ef5",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Teleport Mode Cancel",
-                    "type": "Button",
-                    "id": "d587b60c-39a0-4365-8075-477ce484ba0f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Teleport Direction",
-                    "type": "Value",
-                    "id": "b950a329-6492-4e29-b563-afc726f81e95",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Turn",
-                    "type": "Value",
-                    "id": "9fb2eb2b-2fb6-4328-8167-10a1bf11b424",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "00a4dc9f-1ee6-4349-b0e9-72d5dccaadd6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Grab Move",
-                    "type": "Button",
-                    "id": "cfb29d37-3db0-4e5d-a73b-7d48a19e279e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Snap Turn",
-                    "type": "Value",
-                    "id": "44441ad6-5762-466d-ad54-aa44fcd61a5c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "919c4a6c-22ed-4083-8e14-f30e91ff59fe",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Teleport Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "62690862-4688-4010-975b-b3d9c6062157",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=1)",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Teleport Mode Activate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de466e6e-12bf-46a1-b0fd-ffbc343f3399",
-                    "path": "<XRController>{RightHand}/gripPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Teleport Mode Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d6c08c3d-3d41-4695-994d-1ac9016a5a9e",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Turn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "022046aa-be71-4288-859d-6dd42844f6e6",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "Continuous Move",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c4b46d7d-8231-4672-83f9-75af565faf57",
-                    "path": "<XRController>{RightHand}/primary2DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Noncontinuous Move",
-                    "action": "Teleport Direction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7ecb549e-ab98-4a4b-b979-38068fe3b811",
-                    "path": "<XRController>{RightHand}/gripPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Grab Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "31d838df-4d4e-4c16-a373-b9c07d9d2e2a",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=12,sweepBehavior=1),Sector(directions=2,sweepBehavior=2)",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
-                    "action": "Snap Turn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "XRI UI",
             "id": "edd65a7c-601c-4915-8307-025a081d8790",
             "actions": [
@@ -2221,6 +2221,62 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Change Spells",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Left Grip",
+            "id": "e5554a4a-fb0b-470b-945e-d08411e7b792",
+            "actions": [
+                {
+                    "name": "Left Grip",
+                    "type": "Button",
+                    "id": "658c511f-5778-4c1c-8f90-ad88cd546efc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d86c3061-1f07-45fe-b2de-44e2412232be",
+                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Left Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Right Grip",
+            "id": "108b4a0e-684b-438b-8fde-4208b6bea228",
+            "actions": [
+                {
+                    "name": "Right Grip",
+                    "type": "Button",
+                    "id": "bb85473f-37f3-42a0-b5f5-fa8ec3e2e34f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bfa56629-f0b3-4a68-bcea-75980a64cbc6",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Right Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -128,6 +128,56 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8685700520257500872, guid: 797a1594a82821849bb7254ef822700a, type: 3}
   m_PrefabInstance: {fileID: 1682378693}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &627173844
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627173843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.10179436
+  m_Height: 1.4855186
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.81895894, z: 0.0021198988}
+--- !u!54 &627173846
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627173843}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1427454785
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +190,7 @@ GameObject:
   - component: {fileID: 1427454788}
   m_Layer: 0
   m_Name: DungeonGenerator
-  m_TagString: Untagged
+  m_TagString: Generator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -486,6 +536,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3473423664092105747, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932050621396003768, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932050621396003773, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4094729660851706474, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.049996823
@@ -510,6 +572,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 80.54
       objectReference: {fileID: 0}
+    - target: {fileID: 7327854128468063442, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121594704506431630, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8685700520257500872, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       propertyPath: m_Name
       value: WizardPlayer
@@ -517,7 +587,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8685700520257500872, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 627173844}
+    - targetCorrespondingSourceObject: {fileID: 8685700520257500872, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 627173846}
   m_SourcePrefab: {fileID: 100100000, guid: 797a1594a82821849bb7254ef822700a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
