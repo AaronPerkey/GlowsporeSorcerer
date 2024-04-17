@@ -9,6 +9,8 @@ TagManager:
   - Anchor
   - Hallway
   - Generator
+  - Wand
+  - hand
   layers:
   - Default
   - TransparentFX

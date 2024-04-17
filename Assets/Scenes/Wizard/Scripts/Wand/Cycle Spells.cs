@@ -21,13 +21,39 @@ public class CycleSpells : MonoBehaviour
     public GameObject spellIndicator;
     public int n = 0;
     bool active = false;
+    bool collided = false;
 
     private void Awake()
     {
         shoot = GetComponent<Shoot>();
 
-        gripRightRefference.action.performed += OnButtonPress;
-        gripLeftRefference.action.performed += OnButtonPress;
+
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.gameObject.CompareTag("hand"))
+        {
+            Debug.Log("Wand interacted with hand, it worked");
+            collided = true;
+            gripRightRefference.action.performed += OnButtonPress;
+            gripLeftRefference.action.performed += OnButtonPress;
+            
+        }
+        else
+        {
+            gripRightRefference.action.canceled -= OnButtonRelease;
+            gripLeftRefference.action.canceled -= OnButtonRelease;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+
+        Debug.Log("Wand is no longer interacting with hand, it worked");
+        collided = false;
+        gripRightRefference.action.canceled -= OnButtonRelease;
+        gripLeftRefference.action.canceled -= OnButtonRelease;
+        
     }
 
     private void onDestroy()
@@ -42,19 +68,26 @@ public class CycleSpells : MonoBehaviour
 
     private void OnButtonPress(InputAction.CallbackContext context)
     {
-        SpellIndicator();
-        changeSpellReference.action.performed += ChangeSpell;
-        gripRightRefference.action.canceled += OnButtonRelease;
-        gripLeftRefference.action.canceled += OnButtonRelease;
+        if (collided)
+        {
+            SpellIndicator();
+            changeSpellReference.action.performed += ChangeSpell;
+        }
+
     }
 
-    void OnButtonRelease(InputAction.CallbackContext context)
+    public void OnButtonRelease(InputAction.CallbackContext context)
     {
-        Destroy(spellIndicator);
+        if (!collided)
+        {
+            Debug.Log("Game object should be gone");
+            Destroy(spellIndicator);
+        }
     }
 
     private void Update()
     {
+
         // Check if spawnPoint and spellIndicators[n] are not null, and if n is within bounds
         if (spawnPoint != null && n >= 0 && n < spellIndicators.Length && spellIndicators[n] != null)
         {
