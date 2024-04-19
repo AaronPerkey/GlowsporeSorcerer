@@ -19,6 +19,7 @@ public class DungeonCreator : MonoBehaviour
    public int roomOffset;
    public GameObject wallNoSupport, wallWithSupport;
    public GameObject XRPlayer;
+   public GameObject xrOrigin;
    public GameObject Enemy;
    public GameObject goalPrefab;
    public GameObject TopRightRocks, TopLeftRocks, BottomRightRocks, BottomLeftRocks;
@@ -88,19 +89,20 @@ public class DungeonCreator : MonoBehaviour
        }
 
 
-       SpawnPlayerAndGoal(listOfRooms);
+       SpawnPlayerAndGoal(listOfRooms, enemyParent);
       
        CreateWalls(wallParent);
    }
 
 
-   private void SpawnPlayerAndGoal(List<Node> listOfRooms)
+   private void SpawnPlayerAndGoal(List<Node> listOfRooms, GameObject enemyParent)
    {
        Node startRoom = listOfRooms[UnityEngine.Random.Range(0, listOfRooms.Count)];
        Vector3 playerPosition = new Vector3();
        playerPosition.x = (startRoom.BottomLeftAreaCorner.x + startRoom.BottomRightAreaCorner.x) / 2;
        playerPosition.z = (startRoom.BottomLeftAreaCorner.y +  startRoom.TopLeftAreaCorner.y) / 2;
        XRPlayer.transform.position = playerPosition;
+       xrOrigin.transform.position = playerPosition;
 
 
        // Find the room farthest from the player
@@ -129,10 +131,27 @@ public class DungeonCreator : MonoBehaviour
        goal.transform.parent = transform;
 
 
-   }
+        // Destroy enemies within a certain radius of player and goal
+        DestroyEnemiesWithinRadius(playerPosition, enemyParent);
+        DestroyEnemiesWithinRadius(goalPosition, enemyParent);
+
+    }
+
+    private void DestroyEnemiesWithinRadius(Vector3 position, GameObject enemyParent)
+    {
+        float destroyRadius = 20f; // Adjust this radius as needed
+        Collider[] colliders = Physics.OverlapSphere(position, destroyRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(collider.gameObject);
+            }
+        }
+    }
 
 
-   private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
    {
        // Adjust the position of corners by spawnMargin
        Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, bottomLeftCorner.y + spawnMargin);

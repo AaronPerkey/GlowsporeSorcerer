@@ -362,6 +362,7 @@ MonoBehaviour:
   wallNoSupport: {fileID: 4964542576630972498, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
   wallWithSupport: {fileID: 6240206488090968454, guid: 67aee5a7d35f6ae4992bacdaed4866eb, type: 3}
   XRPlayer: {fileID: 627173843}
+  xrOrigin: {fileID: 1618604155}
   Enemy: {fileID: 5873812117934047566, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
   goalPrefab: {fileID: 3935430413931181975, guid: 646649b268860ea4f90c5a90664bb8b1, type: 3}
   TopRightRocks: {fileID: 2892930720390958331, guid: 0166dfd6d1662492ba08745d79d06e61, type: 3}
@@ -645,6 +646,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1618604155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8590965232858360079, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+  m_PrefabInstance: {fileID: 1682378693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682378693
 PrefabInstance:
   m_ObjectHideFlags: 0
