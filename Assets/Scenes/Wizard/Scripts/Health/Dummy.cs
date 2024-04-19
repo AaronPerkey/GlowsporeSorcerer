@@ -23,7 +23,7 @@ public class Dummy : MonoBehaviour
                 health.currentHealth = health.maxHealth;
             }
         }
-        if (health.currentHealth == 0 && !invincible)
+        if (health.currentHealth <= 0 && !invincible)
         {
             Destroy(gameObject);
         }

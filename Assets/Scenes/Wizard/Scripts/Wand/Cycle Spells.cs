@@ -21,6 +21,7 @@ public class CycleSpells : MonoBehaviour
     public GameObject spellIndicator;
     public int n = 0;
     bool active = false;
+    bool collided = false;
 
 
     private void Awake()
@@ -38,6 +39,8 @@ public class CycleSpells : MonoBehaviour
     {
         if (other.transform.gameObject.CompareTag("hand"))
         {
+            collided = true;
+
             Debug.Log("Wand interacted with hand, it worked");
             OnButtonPress();
 
@@ -52,6 +55,7 @@ public class CycleSpells : MonoBehaviour
     {
         if (other.transform.gameObject.CompareTag("hand"))
         {
+            collided = false;
             Debug.Log("Wand is no longer interacting with hand, it worked");
             OnButtonRelease();
         }
@@ -62,9 +66,12 @@ public class CycleSpells : MonoBehaviour
      */
     private void OnButtonPress()
     {
+        if (collided)
+        {
+            SpellIndicator();
+            changeSpellReference.action.performed += ChangeSpell;
+        }
 
-        SpellIndicator();
-        changeSpellReference.action.performed += ChangeSpell;
         
 
     }
