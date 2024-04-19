@@ -21,7 +21,7 @@ public class CycleSpells : MonoBehaviour
     public GameObject spellIndicator;
     public int n = 0;
     bool active = false;
-    bool collided = false;
+
 
     private void Awake()
     {
@@ -29,60 +29,56 @@ public class CycleSpells : MonoBehaviour
 
 
     }
-    public void OnCollisionEnter(Collision collision)
+
+
+    /*
+     * This method triggers the spawn of the spell indicator on the tip of the wand
+     */
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.gameObject.CompareTag("hand"))
+        if (other.transform.gameObject.CompareTag("hand"))
         {
             Debug.Log("Wand interacted with hand, it worked");
-            collided = true;
-            gripRightRefference.action.performed += OnButtonPress;
-            gripLeftRefference.action.performed += OnButtonPress;
-            
+            OnButtonPress();
+
         }
-        else
+
+    }
+
+    /*
+    * This method triggers the unspawns of the spell indicator on the tip of the wand
+    */
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.gameObject.CompareTag("hand"))
         {
-            gripRightRefference.action.canceled -= OnButtonRelease;
-            gripLeftRefference.action.canceled -= OnButtonRelease;
+            Debug.Log("Wand is no longer interacting with hand, it worked");
+            OnButtonRelease();
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    /*
+     * This method spawns the spell indicator(game object) on the tip of the wand
+     */
+    private void OnButtonPress()
     {
 
-        Debug.Log("Wand is no longer interacting with hand, it worked");
-        collided = false;
-        gripRightRefference.action.canceled -= OnButtonRelease;
-        gripLeftRefference.action.canceled -= OnButtonRelease;
+        SpellIndicator();
+        changeSpellReference.action.performed += ChangeSpell;
         
-    }
-
-    private void onDestroy()
-    {
-        // Unsubscribe from events to prevent memory leaks
-        gripRightRefference.action.performed -= OnButtonPress;
-        gripLeftRefference.action.performed -= OnButtonPress;
-        changeSpellReference.action.performed -= ChangeSpell;
-        gripRightRefference.action.canceled -= OnButtonRelease;
-        gripLeftRefference.action.canceled -= OnButtonRelease;
-    }
-
-    private void OnButtonPress(InputAction.CallbackContext context)
-    {
-        if (collided)
-        {
-            SpellIndicator();
-            changeSpellReference.action.performed += ChangeSpell;
-        }
 
     }
 
-    public void OnButtonRelease(InputAction.CallbackContext context)
+    /*
+    * This method unspawns the spell indicator(game object) on the tip of the wand
+    */
+    public void OnButtonRelease()
     {
-        if (!collided)
-        {
-            Debug.Log("Game object should be gone");
-            Destroy(spellIndicator);
-        }
+
+        Debug.Log("Game object should be gone");
+        Destroy(spellIndicator);
+
+
     }
 
     private void Update()
@@ -97,6 +93,9 @@ public class CycleSpells : MonoBehaviour
         }
     }
 
+    /*
+     * This method cycles through spells
+     */
     public void ChangeSpell(InputAction.CallbackContext context)
     {
         shoot.lastShootTime = 0;

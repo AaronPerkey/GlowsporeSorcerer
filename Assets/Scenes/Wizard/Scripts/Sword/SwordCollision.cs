@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class SwordCollision : MonoBehaviour
 {
-    private Healthbar healthbar;
-    public int damage;
+    public float damage;
     void OnTriggerEnter(Collider collision)
     {
         Health health;
-        healthbar = collision.GetComponentInChildren<Healthbar>();
         health = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
             
             if( health != null)
             {
-                health.currentHealth -= damage;
-                healthbar.UpdateHealthbar(health.maxHealth, health.currentHealth);
+                health.TakeDamage(damage);
             }
 
         }

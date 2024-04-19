@@ -5,6 +5,8 @@ using UnityEngine;
 public class Dummy : MonoBehaviour
 {
     Health health;
+    public bool invincible;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,16 @@ public class Dummy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health.currentHealth <= 0)
+        if (invincible)
         {
-            health.currentHealth = health.maxHealth;
+            if (health.currentHealth <= 0)
+            {
+                health.currentHealth = health.maxHealth;
+            }
+        }
+        if (health.currentHealth == 0 && !invincible)
+        {
+            Destroy(gameObject);
         }
     }
 }

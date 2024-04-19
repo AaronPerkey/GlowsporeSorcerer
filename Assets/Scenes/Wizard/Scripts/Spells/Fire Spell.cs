@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FireSpell : MonoBehaviour
 {
-    private Healthbar healthbar;
     Health health;
 
     public int damage;
@@ -20,8 +19,6 @@ public class FireSpell : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
-            healthbar = collision.GetComponentInChildren<Healthbar>();
             health = collision.gameObject.GetComponent<Health>();
             collided = true;
         }
@@ -37,12 +34,12 @@ public class FireSpell : MonoBehaviour
     }
 
     void FireDamage(Health health)
+    {
+        if (health != null)
         {
-            if (health != null)
-            {
-                health.currentHealth -= damage;
-            }
+            health.TakeDamage(damage);
         }
+    }
 
 
 }
