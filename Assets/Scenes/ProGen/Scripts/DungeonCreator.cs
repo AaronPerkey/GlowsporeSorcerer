@@ -29,28 +29,37 @@ public class DungeonCreator : MonoBehaviour
    List<Vector3Int> possibleWallHorizontalPosition;
    List<Vector3Int> possibleWallVerticalPosition;
 
-
+   [HideInInspector]
    public bool regenerate = false;
+   [HideInInspector]
+   public int floorNumber;
+    [HideInInspector]
 
 
    // Start is called before the first frame update
    void Start()
    {
        CreateDungeon();
+       floorNumber = 1;
    }
 
 
    void Update(){
-       if (regenerate){
-           CreateDungeon();
-           regenerate = false;
-       }
+       if (regenerate && (floorNumber % 5 == 0)){
+            MovePlayerToShop();
+            regenerate = false;
+       }else if (regenerate)
+        {
+            CreateDungeon();
+            regenerate = false;
+        }
    }
 
 
    public void CreateDungeon()
    {
        DestroyAllChildren();
+       floorNumber++;
        DungeonMaker generator = new DungeonMaker(dungeonWidth, dungeonLength);
        var listOfRoomsAndHallways = generator.CalculateDungeon(maxIterations,
            roomWidthMin,
@@ -148,6 +157,14 @@ public class DungeonCreator : MonoBehaviour
                 Destroy(collider.gameObject);
             }
         }
+    }
+
+    public void MovePlayerToShop()
+    {
+        floorNumber++;
+        Vector3 playerPosition = new Vector3(-15F, 0F, 5F);
+        XRPlayer.transform.position = playerPosition;
+        xrOrigin.transform.position = playerPosition;
     }
 
 
