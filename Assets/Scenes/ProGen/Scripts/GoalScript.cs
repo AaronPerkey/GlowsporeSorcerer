@@ -7,7 +7,7 @@ public class GoalScript : MonoBehaviour
 {
    private DungeonCreator dungeonGenerator;
    public GameObject dungeonGeneratorObj;
-
+   
 
    private void Start()
    {
@@ -29,13 +29,11 @@ public class GoalScript : MonoBehaviour
    {
        if (other.CompareTag("Player"))
        {
-           dungeonGenerator = dungeonGeneratorObj.GetComponent<DungeonCreator>();
+           
+            dungeonGenerator.regenerate = true;
+            Debug.Log(dungeonGenerator.floorNumber);
+            Destroy(gameObject);
 
-
-           dungeonGenerator.regenerate = true;
-
-
-           Destroy(gameObject);
        }
    }
 
