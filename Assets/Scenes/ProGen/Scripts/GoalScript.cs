@@ -25,27 +25,17 @@ public class GoalScript : MonoBehaviour
    }
 
 
-       private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
    {
        if (other.CompareTag("Player"))
        {
-           
+            dungeonGenerator = dungeonGeneratorObj.GetComponent<DungeonCreator>();
             dungeonGenerator.regenerate = true;
             Debug.Log(dungeonGenerator.floorNumber);
-            Destroy(gameObject);
-
+            
        }
    }
 
-
-   private void DestroyChildren(Transform parent)
-   {
-       // Loop through each child of the parent transform and destroy it
-       foreach (Transform child in parent)
-       {
-           Destroy(child.gameObject);
-       }
-   }
 
 
 }

@@ -161,7 +161,7 @@ public class DungeonCreator : MonoBehaviour
 
     public void MovePlayerToShop()
     {
-        floorNumber++;
+        floorNumber ++;
         Vector3 playerPosition = new Vector3(-15F, 0F, 5F);
         XRPlayer.transform.position = playerPosition;
         xrOrigin.transform.position = playerPosition;
