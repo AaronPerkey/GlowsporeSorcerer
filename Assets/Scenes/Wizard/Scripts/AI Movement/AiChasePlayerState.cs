@@ -7,6 +7,7 @@ public class AiChasePlayerState : AiState
 {
     
     float timer = 0.0f;
+    public Transform playerTransform;
 
     public AiStateId GetId()
     {
@@ -14,6 +15,10 @@ public class AiChasePlayerState : AiState
     }
     public void Enter(AiAgent agent)
     {
+        if (playerTransform == null)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
     }
     public void Update(AiAgent agent)
     {
@@ -31,12 +36,11 @@ public class AiChasePlayerState : AiState
         {
             Vector3 direction = (agent.playerTransform.position - agent.navMeshAgent.destination);
             direction.y = 0;
-            float sqDistance = (agent.playerTransform.position - agent.navMeshAgent.destination).sqrMagnitude;
             if (direction.sqrMagnitude > agent.config.maxDistance * agent.config.maxDistance)
             {
                 if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
                 {
-                    agent.navMeshAgent.destination = agent.playerTransform.position;
+                    agent.navMeshAgent.destination = playerTransform.position;
                 }
             }
             timer = agent.config.maxTime;
