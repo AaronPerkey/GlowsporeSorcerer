@@ -6,6 +6,6 @@ public class skull_animate : MonoBehaviour
 {
       void Update()
     {
-        transform.position = new Vector3(0, Mathf.Sin(Time.time), 0);
+        transform.position = new Vector3(0, 0.5f*(Mathf.Sin(Time.time))+1.0f, 0);
     }
 }
