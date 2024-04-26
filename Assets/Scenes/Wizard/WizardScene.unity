@@ -451,11 +451,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500640987}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &625547138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4565012709125860231, guid: 797a1594a82821849bb7254ef822700a, type: 3}
-  m_PrefabInstance: {fileID: 1523910727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &887185813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8590965232858360076, guid: 797a1594a82821849bb7254ef822700a, type: 3}
@@ -1057,7 +1052,7 @@ MonoBehaviour:
   initialState: 0
   navMeshAgent: {fileID: 1707500846}
   config: {fileID: 11400000, guid: ce93ebcb5f15d2e4e888426aadafca6f, type: 2}
-  playerTransform: {fileID: 625547138}
+  playerTransform: {fileID: 0}
 --- !u!195 &1707500846 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 1166432090448368134, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
