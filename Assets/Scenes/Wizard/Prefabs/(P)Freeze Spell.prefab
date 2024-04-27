@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3074193753238977581}
   - component: {fileID: 7012836307830524812}
   - component: {fileID: 7361957626229287944}
+  - component: {fileID: 1565108902347358493}
   m_Layer: 0
-  m_Name: Freeze Spell
+  m_Name: (P)Freeze Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,3 +133,16 @@ MonoBehaviour:
   - {x: 0.00000047683716, y: 0, z: -1.6691718}
   - {x: 0.00000047683716, y: 0, z: 1.5762606}
   - {x: -1.3468332, y: 0.9432459, z: -0.26863432}
+--- !u!114 &1565108902347358493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571768837017792384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8c4cad751f8984b8fcaace2c0e6e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0

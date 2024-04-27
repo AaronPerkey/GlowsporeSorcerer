@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class FireSpell : MonoBehaviour
@@ -12,7 +13,28 @@ public class FireSpell : MonoBehaviour
 
     private float nextTimeToDamage = 0f;
     private float damageRate = 1.5f;
-    
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            health = collision.collider.gameObject.GetComponent<Health>();
+            Transform current = collision.collider.transform;
+            /*
+            while (health == null || current.parent == null)
+            {
+                current = current.parent;
+                health = current.gameObject.GetComponent<Health>();
+            }
+            */
+            if (health != null)
+            {
+                collided = true;
+            }
+            Destroy(gameObject);
+        }
+    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -20,7 +42,19 @@ public class FireSpell : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health = collision.gameObject.GetComponent<Health>();
-            collided = true;
+            Transform current = collision.transform;
+            /*
+              while (health == null || current.parent == null)
+              {
+                  current = current.parent;
+                  health = current.gameObject.GetComponent<Health>();
+              }
+              */
+            if (health != null)
+            {
+                collided = true;
+            }
+            Destroy(gameObject);
         }
     }
 

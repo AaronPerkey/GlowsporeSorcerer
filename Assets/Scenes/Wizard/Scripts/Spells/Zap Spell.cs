@@ -11,11 +11,19 @@ public class Zap : MonoBehaviour
         health = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            Transform current = collision.transform;
+            /*
+            while (health != null)
+            {
+                current = current.parent;
+                health = current.gameObject.GetComponent<Health>();
+            }
             if (health != null)
             {
-                health.TakeDamage(damage);
+                
             }
+            */
+            health.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

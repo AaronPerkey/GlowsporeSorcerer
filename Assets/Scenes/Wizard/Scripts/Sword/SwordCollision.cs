@@ -11,12 +11,16 @@ public class SwordCollision : MonoBehaviour
         health = collision.gameObject.GetComponent<Health>();
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
-            if( health != null)
+            Transform current = collision.transform;
+            while (health != null)
+            {
+                current = current.parent;
+                health = current.gameObject.GetComponent<Health>();
+            }
+            if (health != null)
             {
                 health.TakeDamage(damage);
             }
-
         }
     }
 }
