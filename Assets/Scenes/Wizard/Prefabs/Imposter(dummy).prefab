@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5183007099854920965}
   - component: {fileID: 4418448589312639065}
   - component: {fileID: 1166432090448368134}
+  - component: {fileID: 4767840552999924293}
   m_Layer: 7
   m_Name: Imposter(dummy)
   m_TagString: Enemy
@@ -179,8 +180,6 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   healthbar: {fileID: 1621087860473716426}
-  blinkIntensity: 0
-  blinkDuration: 0
 --- !u!114 &4418448589312639065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,14 +207,42 @@ NavMeshAgent:
   m_Acceleration: 40
   avoidancePriority: 50
   m_AngularSpeed: 720
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!114 &4767840552999924293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873812117934047566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce109183ae0d4a4ebf15c6949cc30bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1166432090448368134}
+  player: {fileID: 2636340758344310614, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 5
+  timeBetweenAttacks: 0.5
+  enemyAttack: {fileID: 0}
+  sightRange: 10
+  attackRange: 0
+  playerInSightRange: 0
+  playerInAttackRange: 0
 --- !u!1 &8131624251577395841
 GameObject:
   m_ObjectHideFlags: 0

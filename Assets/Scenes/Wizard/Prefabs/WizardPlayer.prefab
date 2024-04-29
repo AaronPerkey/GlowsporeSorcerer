@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4565012709125860231}
   - component: {fileID: 8201175160371065988}
-  - component: {fileID: 2336883701063257025}
   - component: {fileID: 5029421933527989367}
   - component: {fileID: 859623391319945961}
   m_Layer: 8
@@ -58,26 +57,6 @@ MonoBehaviour:
     heightRatio: 0.5
   - gameObject: {fileID: 6110417323597433858}
     heightRatio: 0.5
---- !u!114 &2336883701063257025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2423316683723644017}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b0f8095998c0c4f8513abad42f456f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pivotPoint: {fileID: 2636340758344310614}
-  cameraTransform: {fileID: 6984621015659491408}
-  holsters:
-  - {fileID: 3156954146212570532}
-  - {fileID: 6424815902686237431}
-  - {fileID: 6883541486455707320}
-  rotationSpeed: 50
-  inputActionReference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!136 &5029421933527989367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -544,11 +523,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.025
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &6984621015659491408 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9014170783809206335, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-  m_PrefabInstance: {fileID: 2159088303230044271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6984621015659491411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}

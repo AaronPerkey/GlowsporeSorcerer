@@ -21,13 +21,11 @@ public class FireSpell : MonoBehaviour
         {
             health = collision.collider.gameObject.GetComponent<Health>();
             Transform current = collision.collider.transform;
-            /*
-            while (health == null || current.parent == null)
+            while (health == null && current.parent != null)
             {
                 current = current.parent;
                 health = current.gameObject.GetComponent<Health>();
             }
-            */
             if (health != null)
             {
                 collided = true;
@@ -43,13 +41,11 @@ public class FireSpell : MonoBehaviour
         {
             health = collision.gameObject.GetComponent<Health>();
             Transform current = collision.transform;
-            /*
-              while (health == null || current.parent == null)
-              {
-                  current = current.parent;
-                  health = current.gameObject.GetComponent<Health>();
-              }
-              */
+            while (health == null && current.parent != null)
+            {
+                current = current.parent;
+                health = current.gameObject.GetComponent<Health>();
+            }
             if (health != null)
             {
                 collided = true;
