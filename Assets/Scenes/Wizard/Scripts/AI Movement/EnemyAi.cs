@@ -8,6 +8,7 @@ public class EnemyAi : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    public Transform child;
 
     //Patrolling 
     public Vector3 walkPoint;
@@ -28,6 +29,7 @@ public class EnemyAi : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         enemyAttack = GetComponent<EnemyAttack>();
+        child = transform.GetChild(0);
     }
 
     private void Update()
@@ -57,6 +59,8 @@ public class EnemyAi : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        //TODO: make the child object y transform update with zero for the animation
+        //child.transform.position.y = 0;
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
     }
