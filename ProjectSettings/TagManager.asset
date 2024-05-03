@@ -22,9 +22,9 @@ TagManager:
   - Enemy
   - Player
   - Ground
-  - 
-  - 
-  - 
+  - Wall
+  - Rock
+  - Portal
   - 
   - 
   - 

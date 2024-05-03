@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class CycleSpells : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
-    private bool listenersAdded = false;
+    //private bool listenersAdded = false;
 
     [HideInInspector] public Shoot shoot;
     public Transform spawnPoint;
@@ -18,7 +18,7 @@ public class CycleSpells : MonoBehaviour
 
     public GameObject[] spells;
     public GameObject[] spellIndicators;
-    public GameObject spellIndicator;
+    GameObject spellIndicator;
     public int n = 0;
     bool active = false;
     bool collided = false;
@@ -92,7 +92,7 @@ public class CycleSpells : MonoBehaviour
     {
 
         // Check if spawnPoint and spellIndicators[n] are not null, and if n is within bounds
-        if (spawnPoint != null && n >= 0 && n < spellIndicators.Length && spellIndicators[n] != null)
+        if (spellIndicator != null && n >= 0 && n < spellIndicators.Length && spellIndicators[n] != null)
         {
             // Update the position of the spell indicator to match the position of the spawnPoint
             spellIndicator.transform.position = spawnPoint.position;
@@ -123,7 +123,7 @@ public class CycleSpells : MonoBehaviour
     private void SpellIndicator()
     {
         Destroy(spellIndicator);
-        spellIndicator = Instantiate(GetSpellIndicator(), spawnPoint);
+        spellIndicator = Instantiate(GetSpellIndicator(), spawnPoint.transform);
 
     }
 

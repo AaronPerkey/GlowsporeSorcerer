@@ -35,13 +35,12 @@ public class DungeonCreator : MonoBehaviour
    public int floorNumber;
     [HideInInspector]
 
-
    // Start is called before the first frame update
    void Start()
    {
        CreateDungeon();
        floorNumber = 1;
-   }
+    }
 
 
    void Update(){
@@ -53,7 +52,7 @@ public class DungeonCreator : MonoBehaviour
             CreateDungeon();
             regenerate = false;
         }
-   }
+    }
 
 
    public void CreateDungeon()
@@ -101,11 +100,12 @@ public class DungeonCreator : MonoBehaviour
        SpawnPlayerAndGoal(listOfRooms, enemyParent);
       
        CreateWalls(wallParent);
-   }
+    }
 
 
    private void SpawnPlayerAndGoal(List<Node> listOfRooms, GameObject enemyParent)
    {
+       
        Node startRoom = listOfRooms[UnityEngine.Random.Range(0, listOfRooms.Count)];
        Vector3 playerPosition = new Vector3();
        playerPosition.x = (startRoom.BottomLeftAreaCorner.x + startRoom.BottomRightAreaCorner.x) / 2;
@@ -143,7 +143,7 @@ public class DungeonCreator : MonoBehaviour
         // Destroy enemies within a certain radius of player and goal
         DestroyEnemiesWithinRadius(playerPosition, enemyParent);
         DestroyEnemiesWithinRadius(goalPosition, enemyParent);
-
+        
     }
 
     private void DestroyEnemiesWithinRadius(Vector3 position, GameObject enemyParent)

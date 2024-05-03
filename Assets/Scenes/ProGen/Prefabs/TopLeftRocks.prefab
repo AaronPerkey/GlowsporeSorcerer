@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 106302885945412373}
   - component: {fileID: 6683775889209768144}
   - component: {fileID: 2184779691312967153}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_41(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7457780462842400016}
   - component: {fileID: 1295728881304499751}
   - component: {fileID: 8278189847994282959}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Granite_44(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 5067340362553015335}
   - component: {fileID: 5938673463573049181}
   - component: {fileID: 3005066699353472168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Sandstone_52(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 7886191762036283882}
   - component: {fileID: 9181213408527986503}
   - component: {fileID: 632411094243695089}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_20(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,8 @@ GameObject:
   - component: {fileID: 8718484623047652404}
   - component: {fileID: 7970323823154869077}
   - component: {fileID: 241102568350017248}
-  m_Layer: 0
+  - component: {fileID: -283345769406225434}
+  m_Layer: 11
   m_Name: TopLeftRocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,3 +525,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29765e00392bf4918ba5b2fa63067979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &-283345769406225434
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771356028852805186}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

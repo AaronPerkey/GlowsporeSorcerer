@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,12 +13,12 @@ public class EnemyAi : MonoBehaviour
 
     //Patrolling 
     public Vector3 walkPoint;
-    bool walkPointSet;
+    public bool walkPointSet;
     public float walkPointRange;
 
     //Attacking
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public bool alreadyAttacked;
     [HideInInspector] public EnemyAttack enemyAttack;
 
     //states
@@ -37,6 +38,10 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+        if (child.transform.position.y <= 0 && this.gameObject.name != "BullSkull")
+        {
+            child.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChansePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
@@ -44,6 +49,7 @@ public class EnemyAi : MonoBehaviour
 
     public void Patroling()
     {
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet) agent.SetDestination(walkPoint);
@@ -59,8 +65,6 @@ public class EnemyAi : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        //TODO: make the child object y transform update with zero for the animation
-        //child.transform.position.y = 0;
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
     }

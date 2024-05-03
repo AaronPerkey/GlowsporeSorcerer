@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3813602232891432468}
   - component: {fileID: 1494927457416449897}
   - component: {fileID: 4368186874045433908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_37(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,8 @@ GameObject:
   - component: {fileID: 5456636324980327280}
   - component: {fileID: 6989171558615041438}
   - component: {fileID: 909483633333297290}
-  m_Layer: 0
+  - component: {fileID: 4137204289794224748}
+  m_Layer: 11
   m_Name: BottomLeftRocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +206,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29765e00392bf4918ba5b2fa63067979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &4137204289794224748
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832100803230838005}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7180038303475259404
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +234,7 @@ GameObject:
   - component: {fileID: 7487071775011033044}
   - component: {fileID: 8426248884058424482}
   - component: {fileID: 2273903675991783186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Sandstone_30(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +340,7 @@ GameObject:
   - component: {fileID: 6538824249453902140}
   - component: {fileID: 8925085274339550123}
   - component: {fileID: 4113068257400795854}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Granite_58(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +446,7 @@ GameObject:
   - component: {fileID: 7765862475134335553}
   - component: {fileID: 4603106302220278585}
   - component: {fileID: 764494882412321094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_35(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

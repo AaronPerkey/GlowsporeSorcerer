@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1782804814423320561}
   - component: {fileID: 5837487198687665299}
   - component: {fileID: 4340467035873584860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_20(Clone)
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -119,7 +119,8 @@ GameObject:
   - component: {fileID: 1203554973907909614}
   - component: {fileID: 3686554977959854198}
   - component: {fileID: 5174003976798648844}
-  m_Layer: 0
+  - component: {fileID: 1390216275193963320}
+  m_Layer: 11
   m_Name: TopRightRocks
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -204,6 +205,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.83165, y: 1, z: 5.067156}
   m_Center: {x: -0.25722694, y: 0, z: -0.020792007}
+--- !u!208 &1390216275193963320
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892930720390958331}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4066535030819516402
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +233,7 @@ GameObject:
   - component: {fileID: 1166951557873690569}
   - component: {fileID: 5399353062650399349}
   - component: {fileID: 8853212074078291396}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Mossy_17(Clone)
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -323,7 +340,7 @@ GameObject:
   - component: {fileID: 4258255187839145668}
   - component: {fileID: 896868832722422278}
   - component: {fileID: 6994083088262281360}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rocks_Granite_31(Clone)
   m_TagString: Rock
   m_Icon: {fileID: 0}
