@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1290576738945265619}
-  - component: {fileID: -6898060778635141388}
   m_Layer: 10
   m_Name: FinalWallNoSupport
   m_TagString: Untagged
@@ -33,22 +32,6 @@ Transform:
   - {fileID: 2136121186830003895}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &-6898060778635141388
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964542576630972498}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &1886937444093086044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +99,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 20ee985a414b1ab48a6f22fbf3ca6f4b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4536494141675090186}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 20ee985a414b1ab48a6f22fbf3ca6f4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4970645166246683545}
   m_SourcePrefab: {fileID: 100100000, guid: 20ee985a414b1ab48a6f22fbf3ca6f4b, type: 3}
 --- !u!1 &1652493727689634829 stripped
 GameObject:
@@ -144,6 +130,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4161352648222391773, guid: 20ee985a414b1ab48a6f22fbf3ca6f4b, type: 3}
+--- !u!208 &4970645166246683545
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652493727689634829}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 2.35, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!4 &2136121186830003895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 20ee985a414b1ab48a6f22fbf3ca6f4b, type: 3}
