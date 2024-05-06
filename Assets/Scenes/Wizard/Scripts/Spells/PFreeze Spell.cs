@@ -43,6 +43,7 @@ public class PFreezeSpell : MonoBehaviour
     {
         if (collided && Time.time >= nextTimeToFreeze)
         {
+            Debug.Log("Freeze timer started");
             nextTimeToFreeze = Time.time + freezeTime;
             Freeze();
         }
@@ -52,7 +53,7 @@ public class PFreezeSpell : MonoBehaviour
     {
         if (health != null)
         {
-            agent.speed = 0;
+            agent.isStopped = true;
         }
     }
 }

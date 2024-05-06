@@ -9,30 +9,10 @@ public class FireSpell : MonoBehaviour
     Health health;
 
     public int damage;
-    private bool collided = false;
+    private bool collided;
 
     private float nextTimeToDamage = 0f;
     private float damageRate = 1.5f;
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            health = collision.collider.gameObject.GetComponent<Health>();
-            Transform current = collision.collider.transform;
-            while (health == null && current.parent != null)
-            {
-                current = current.parent;
-                health = current.gameObject.GetComponent<Health>();
-            }
-            if (health != null)
-            {
-                collided = true;
-            }
-            Destroy(gameObject);
-        }
-    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -40,14 +20,9 @@ public class FireSpell : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health = collision.gameObject.GetComponent<Health>();
-            Transform current = collision.transform;
-            while (health == null && current.parent != null)
-            {
-                current = current.parent;
-                health = current.gameObject.GetComponent<Health>();
-            }
             if (health != null)
             {
+                Debug.Log("collided(Fire)" + collided);
                 collided = true;
             }
             Destroy(gameObject);
@@ -56,8 +31,15 @@ public class FireSpell : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("collided(Fire)" + collided);
+        if (collided)
+        {
+            Debug.Log("timer(Fire)" + Time.time);
+            Debug.Log("nextTimeToDamage(Fire)" + nextTimeToDamage);
+        }
         if (collided && Time.time >= nextTimeToDamage)
         {
+            Debug.Log("timer(Fire)");
             nextTimeToDamage = Time.time + 1f / damageRate;
             FireDamage(health);
         }

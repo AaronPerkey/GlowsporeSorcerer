@@ -42,6 +42,10 @@ public class EnemyAi : MonoBehaviour
         {
             child.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
+        if (this.gameObject.name == "BullSkull")
+        {
+            child.transform.position = new Vector3(0, 1, 0);
+        }
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChansePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();

@@ -27,8 +27,6 @@ public class CycleSpells : MonoBehaviour
     private void Awake()
     {
         shoot = GetComponent<Shoot>();
-
-
     }
 
 
@@ -41,7 +39,6 @@ public class CycleSpells : MonoBehaviour
         {
             collided = true;
 
-            Debug.Log("Wand interacted with hand, it worked");
             OnButtonPress();
 
         }
@@ -56,7 +53,6 @@ public class CycleSpells : MonoBehaviour
         if (other.transform.gameObject.CompareTag("hand"))
         {
             collided = false;
-            Debug.Log("Wand is no longer interacting with hand, it worked");
             OnButtonRelease();
         }
     }
@@ -81,11 +77,7 @@ public class CycleSpells : MonoBehaviour
     */
     public void OnButtonRelease()
     {
-
-        Debug.Log("Game object should be gone");
         Destroy(spellIndicator);
-
-
     }
 
     private void Update()
@@ -117,7 +109,6 @@ public class CycleSpells : MonoBehaviour
             active = true;
         }
         SpellIndicator();
-        Debug.Log("spell Changed");
     }
 
     private void SpellIndicator()

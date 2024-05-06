@@ -2,34 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afa9bd2e-f57e-4b7d-9064-6a4343586df2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/New Material.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color01.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color02.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color02.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color03.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color03.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_01.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Models/Materials/Dark_Stone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ProGen/Models/Materials/Dark_Stone.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Models/Materials/Light_Stone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ProGen/Models/Materials/Light_Stone.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/NewWall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/NewWall.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_02.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/WallHorizontal.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/WallHorizontal.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/color01.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/WallVertical.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/WallVertical.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_01.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/wall_noSupportBeam.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/wall_noSupportBeam.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/Materials/New Material.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/wall_supportBeam.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Prefabs/wall_supportBeam.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/ProGenScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ProGen/ProGenScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Scripts/DungeonCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ProGen/Scripts/DungeonCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ProGen/Scripts/GoalScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ProGen/Scripts/GoalScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Prefabs/WizardPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Prefabs/WizardPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/sword.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/sword.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/BullSkull.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/BullSkull/BullSkull.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_01.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_01.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_02.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/mayaAssets/mushroomMonsters/mushroomBoi_02.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GlowsporeSorcerer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GlowsporeSorcerer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Prefabs/Floor.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Prefabs/Floor.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/AI Movement/AnimationStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/AI Movement/AnimationStateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/AI Movement/EnemyAi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/AI Movement/EnemyAi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Spells/Fire Spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Spells/Fire Spell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Spells/PFreeze Spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Spells/PFreeze Spell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Wand/Cycle Spells.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Wand/Cycle Spells.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Wand/Shoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Wizard/Scripts/Wand/Shoot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,21 +25,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\aperkey2\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\aperkey2\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\aperkey2\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\aperkey2\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\aperkey2\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\aperkey2\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.17f1\Editor\Unity.exe" />
@@ -106,6 +87,8 @@
       <option name="presentableId" value="Default" />
       <updated>1713566130811</updated>
       <workItem from="1713566134884" duration="8000" />
+      <workItem from="1714959022206" duration="6000" />
+      <workItem from="1714959041094" duration="53000" />
     </task>
     <servers />
   </component>

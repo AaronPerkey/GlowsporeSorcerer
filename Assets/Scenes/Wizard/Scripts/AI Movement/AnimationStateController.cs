@@ -21,7 +21,6 @@ public class AnimationStateController : MonoBehaviour
     {
         if (enemyAi.walkPointSet || enemyAi.playerInSightRange)
         {
-            Debug.Log("is walking");
             animator.SetBool("isWalking", true);
         }
         if (enemyAi.playerInAttackRange) 

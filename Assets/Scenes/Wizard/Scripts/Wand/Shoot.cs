@@ -37,7 +37,7 @@ public class Shoot : MonoBehaviour
             fireRate = FireRate();
         }
 
-        Debug.Log("fire rate " + fireRate);
+
     }
 
     public float FireRate()
@@ -54,7 +54,7 @@ public class Shoot : MonoBehaviour
         }
         if(spell == cycleSpells.GetFreezeSpell())
         {
-            x = 12; Debug.Log("I'm also also getting called");
+            x = 12;
         }
         return x;
     }
