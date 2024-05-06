@@ -1930,6 +1930,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
+--- !u!1 &842521096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5873812117934047566, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
+  m_PrefabInstance: {fileID: 3448447927348644081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &842521106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7763845265968021092, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
+  m_PrefabInstance: {fileID: 3448447927348644081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &842521107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842521096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf153e1a97c333439ad4feae723d49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 842521106}
+  coin: {fileID: 4238359535006579871, guid: 945e900a84a349342a1e8f9c73a7dba1, type: 3}
 --- !u!4 &887185813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8590965232858360076, guid: 797a1594a82821849bb7254ef822700a, type: 3}
@@ -4067,7 +4091,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5873812117934047566, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 842521107}
   m_SourcePrefab: {fileID: 100100000, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
