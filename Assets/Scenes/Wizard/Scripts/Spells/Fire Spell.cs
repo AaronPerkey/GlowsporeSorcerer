@@ -9,7 +9,8 @@ public class FireSpell : MonoBehaviour
     Health health;
 
     public int damage;
-    private bool collided = false;
+    public bool collided = false;
+    public bool amICollided = false;
 
     private float nextTimeToDamage = 0f;
     private float damageRate = 1.5f;
@@ -20,19 +21,14 @@ public class FireSpell : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health = collision.gameObject.GetComponent<Health>();
-            if (health != null)
-            {
-                Debug.Log("collided(Fire)" + collided);
-                collided = true;
-            }
-            Destroy(gameObject);
+            collided = true;
         }
     }
 
     void Update()
     {
-        Debug.Log("collided(Fire)" + collided);
-        if (collided)
+        //Debug.Log("collided(Fire)" + collided);
+        if (collided == true)
         {
             Debug.Log("timer(Fire)" + Time.time);
             Debug.Log("nextTimeToDamage(Fire)" + nextTimeToDamage);

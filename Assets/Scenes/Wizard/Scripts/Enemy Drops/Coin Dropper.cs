@@ -7,14 +7,18 @@ using UnityEngine;
 public class CoinDropper : MonoBehaviour
 {
     public Transform enemy;
-    public Rigidbody coin;
+    public GameObject coin;
     private int changceToDrop;
     private int numberOfCoins;
-    private float m_Thrust = 20f;
+    private float m_Thrust = 2f;
 
     void Start()
     {
-        coin = GetComponent<Rigidbody>();
+    
+    }
+
+    private void Update()
+    {
     }
 
     public int Amount()
@@ -22,7 +26,7 @@ public class CoinDropper : MonoBehaviour
         int coinAmount;
         if (Random.Range(0, 1) == 1)
         {
-            coinAmount = Random.Range(0, 5);
+            coinAmount = Random.Range(1, 5);
         }
         else
         {
@@ -34,8 +38,10 @@ public class CoinDropper : MonoBehaviour
 
     public void CoinSpawner()
     {
-        Instantiate(coin, enemy.transform.position, Quaternion.identity);
-        coin.AddForce(transform.up * m_Thrust);
+        
+        GameObject spawnedCoin = Instantiate(coin);
+        spawnedCoin.transform.position = enemy.position;
+        spawnedCoin.GetComponent<Rigidbody>().velocity = enemy.up * m_Thrust;
     }
 
     public void CoinDrop()

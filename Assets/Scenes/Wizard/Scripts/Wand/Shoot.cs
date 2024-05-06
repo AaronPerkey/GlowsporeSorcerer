@@ -21,10 +21,10 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
-        grabbable.activated.AddListener(FireSpell);
+        grabbable.activated.AddListener(ShootSpell);
     }
 
-    public void FireSpell(ActivateEventArgs arg)
+    public void ShootSpell(ActivateEventArgs arg)
     {
         
         if (Time.time >= (lastShootTime + fireRate))
@@ -46,15 +46,15 @@ public class Shoot : MonoBehaviour
         float x = 0;
         if (spell == cycleSpells.GetZapSpell())
         {
-            x = 1;
+            x = 0.25f;
         }
         if (spell == cycleSpells.GetFireSpell())
         {
-            x = 4;
+            x = 2;
         }
         if(spell == cycleSpells.GetFreezeSpell())
         {
-            x = 12;
+            x = 4;
         }
         return x;
     }

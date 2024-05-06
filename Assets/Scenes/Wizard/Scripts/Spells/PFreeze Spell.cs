@@ -25,17 +25,7 @@ public class PFreezeSpell : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health = collision.gameObject.GetComponent<Health>();
-            Transform current = collision.transform;
-            while (health != null)
-            {
-                current = current.parent;
-                health = current.gameObject.GetComponent<Health>();
-            }
-            if (health != null)
-            {
-                collided = true;
-            }
-            Destroy(gameObject);
+            collided = true;
         }
     }
 

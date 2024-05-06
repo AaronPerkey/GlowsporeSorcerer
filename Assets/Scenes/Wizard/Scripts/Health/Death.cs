@@ -7,11 +7,13 @@ public class Death : MonoBehaviour
 {
     Health health;
     public bool invincible;
+    CoinDropper dropper;
 
     // Start is called before the first frame update
     void Start()
     {
         health = gameObject.GetComponentInChildren<Health>();
+        dropper = gameObject.GetComponent<CoinDropper>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Death : MonoBehaviour
         }
         if (health.currentHealth <= 0 && !invincible)
         {
+            dropper.CoinDrop();
             Destroy(gameObject);
         }
     }
