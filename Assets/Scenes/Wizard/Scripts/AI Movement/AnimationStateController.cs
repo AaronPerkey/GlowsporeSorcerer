@@ -7,12 +7,14 @@ public class AnimationStateController : MonoBehaviour
     Animator animator;
     EnemyAi enemyAi;
     GameObject childObject;
+    EnemySpawner spawner;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         enemyAi = GetComponentInParent<EnemyAi>();
+        spawner = GetComponent<EnemySpawner>();
         //childObject = childObject.transform.parent.gameObject;
     }
 
@@ -26,6 +28,15 @@ public class AnimationStateController : MonoBehaviour
         if (enemyAi.playerInAttackRange) 
         {
             animator.SetBool("isWalking", false);
+        }
+
+        if (spawner.collided)
+        {
+            animator.SetBool("spawingEnemies", true);
+        }
+        else
+        {
+            animator.SetBool("spawingEnemies", false);
         }
     }
 }
