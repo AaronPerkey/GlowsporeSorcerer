@@ -9,7 +9,7 @@ public class FireSpell : MonoBehaviour
     Health health;
 
     public int damage;
-    private bool collided;
+    private bool collided = false;
 
     private float nextTimeToDamage = 0f;
     private float damageRate = 1.5f;
