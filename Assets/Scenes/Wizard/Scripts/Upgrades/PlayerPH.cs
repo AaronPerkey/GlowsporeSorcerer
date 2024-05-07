@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerPH : MonoBehaviour
 {
-    PZapSpell zapSpell;
-    PFireSpell fireSpell;
+    ZapSpell zapSpell;
+     FireSpell fireSpell;
     PFreezeSpell freezeSpell;
     Health health;
 
@@ -20,13 +20,13 @@ public class PlayerPH : MonoBehaviour
         //set inital damage
         zapSpell.damage = 5;
         fireSpell.damage = 1;
-        freezeSpell.damage = 10;
+        //freezeSpell.damage = 10;
     }
     public void IncreasePlayerDamage()
     {
         zapSpell.damage += 2;
         fireSpell.damage += 2;
-        freezeSpell.damage += 2;
+        //freezeSpell.damage += 2;
     }
 
     public void IncreasePlayerHealth()

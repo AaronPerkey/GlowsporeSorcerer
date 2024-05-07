@@ -34,12 +34,14 @@ public class DungeonCreator : MonoBehaviour
    [HideInInspector]
    public int floorNumber;
     [HideInInspector]
-
+   
+    //This is a change
    // Start is called before the first frame update
    void Start()
    {
        CreateDungeon();
        floorNumber = 1;
+        Debug.Log("Hi");
     }
 
 

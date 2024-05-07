@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zap : MonoBehaviour
+public class ZapSpell : MonoBehaviour
 {
     public int damage;
     void OnTriggerEnter(Collider collision)
