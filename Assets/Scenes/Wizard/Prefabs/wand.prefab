@@ -782,6 +782,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 4102845290928625016}
   firespeed: 30
   lastShootTime: 0
+  shootClip: {fileID: 8300000, guid: c5cf0f6bd8d423f4ba17fa9bb8ff3a6d, type: 3}
 --- !u!114 &8689605702526303238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,8 +795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7d0747673131f4fadb3b0b81dce251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handTransform: {fileID: 0}
-  objectToCheck: {fileID: 2006415353673308806}
   shoot: {fileID: 0}
   spawnPoint: {fileID: 4102845290928625016}
   changeSpellReference: {fileID: 8779034307258760385, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -809,7 +808,6 @@ MonoBehaviour:
   - {fileID: 8202351611723276388, guid: 4c9c69fe8d382a74081983f17b7aa2a2, type: 3}
   - {fileID: 8202351611723276388, guid: 6ebac67fbf96bc84c9e440e60920f0ae, type: 3}
   - {fileID: 8202351611723276388, guid: 0c2eaa84b6e3cbf41b83470f5a3b96b6, type: 3}
-  spellIndicator: {fileID: 0}
   n: 0
 --- !u!1 &8799923233568962752
 GameObject:

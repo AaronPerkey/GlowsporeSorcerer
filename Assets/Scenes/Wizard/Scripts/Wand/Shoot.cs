@@ -11,6 +11,7 @@ public class Shoot : MonoBehaviour
     public float firespeed;
     private float fireRate;
     [HideInInspector] public float lastShootTime = 0;
+    public AudioClip shootClip;
 
     private void Awake()
     {
@@ -32,6 +33,10 @@ public class Shoot : MonoBehaviour
             GameObject spawnedSpell = Instantiate(cycleSpells.GetSpell());
             spawnedSpell.transform.position = spawnPoint.position;
             spawnedSpell.GetComponent<Rigidbody>().velocity = spawnPoint.forward * firespeed;
+            if (cycleSpells.GetSpell() == cycleSpells.GetFireSpell())
+            {
+                AudioSource.PlayClipAtPoint(shootClip, transform.position, 0.5f);
+            }
             Destroy(spawnedSpell, 5);
             lastShootTime = Time.time;
             fireRate = FireRate();
