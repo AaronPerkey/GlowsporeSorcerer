@@ -2877,7 +2877,7 @@ MonoBehaviour:
   wallWithSupport: {fileID: 6240206488090968454, guid: 67aee5a7d35f6ae4992bacdaed4866eb, type: 3}
   XRPlayer: {fileID: 627173843}
   xrOrigin: {fileID: 1618604155}
-  Enemy: {fileID: 5873812117934047566, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
+  Enemy: {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
   goalPrefab: {fileID: 8775699773672294659, guid: 611649193fbf2e349b13b02496763a72, type: 3}
   TopRightRocks: {fileID: 2892930720390958331, guid: 0166dfd6d1662492ba08745d79d06e61, type: 3}
   TopLeftRocks: {fileID: 6771356028852805186, guid: 0cbac50f627ba4385812ccb8b4adc6a5, type: 3}
