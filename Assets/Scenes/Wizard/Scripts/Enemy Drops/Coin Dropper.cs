@@ -11,10 +11,11 @@ public class CoinDropper : MonoBehaviour
     private int changceToDrop;
     private int numberOfCoins;
     private float m_Thrust = 2f;
+    DungeonCreator m_Creator;
 
     void Start()
     {
-    
+        m_Creator = GetComponent<DungeonCreator>();
     }
 
     private void Update()
@@ -23,10 +24,11 @@ public class CoinDropper : MonoBehaviour
 
     public int Amount()
     {
+        int maybe = Random.Range(0, 5);
         int coinAmount;
-        if (Random.Range(0, 1) == 1)
+        if (maybe >= 3)
         {
-            coinAmount = Random.Range(1, 5);
+            coinAmount = Random.Range(1, m_Creator.floorNumber);
         }
         else
         {
