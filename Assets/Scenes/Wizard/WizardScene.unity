@@ -456,6 +456,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500640987}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &517736630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2423316683723644017, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+  m_PrefabInstance: {fileID: 1523910727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &517736637
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517736630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.20433426
+  m_Height: 2.1624587
+  m_Direction: 1
+  m_Center: {x: -0.036639214, y: 0.5812293, z: -0.052217245}
 --- !u!1 &810880676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
@@ -775,7 +803,7 @@ PrefabInstance:
     - target: {fileID: 503931449522016850, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       propertyPath: changeSpellReference
       value: 
-      objectReference: {fileID: 2080756911322263738, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+      objectReference: {fileID: 8779034307258760385, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 2398030139614031575, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -868,10 +896,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WizardPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8027327047390432514, guid: 797a1594a82821849bb7254ef822700a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2423316683723644017, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 517736637}
   m_SourcePrefab: {fileID: 100100000, guid: 797a1594a82821849bb7254ef822700a, type: 3}
 --- !u!1 &1535035902
 GameObject:

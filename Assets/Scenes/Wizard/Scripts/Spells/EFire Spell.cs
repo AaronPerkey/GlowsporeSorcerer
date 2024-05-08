@@ -7,7 +7,7 @@ public class EFireSpell : MonoBehaviour
     Health health;
 
     [HideInInspector]
-    public float damage; 
+    public float damage = 1; 
     [HideInInspector]
     public bool collided = false;
     [HideInInspector]
