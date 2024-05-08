@@ -29,7 +29,7 @@ public class Death : MonoBehaviour
         }
         if (health.currentHealth <= 0 && !invincible)
         {
-            //dropper.CoinDrop();
+            dropper.CoinDrop();
             //Adjust volume with 3rd argument below
             AudioSource.PlayClipAtPoint(EnemyDeathClip, transform.position);
             Destroy(gameObject);

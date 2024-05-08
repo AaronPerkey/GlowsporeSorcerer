@@ -1,53 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EFreezeSpell : MonoBehaviour
 {
     Health health;
 
-    public int damage;
-    private bool collided = false;
-
-    private float nextTimeToDamage = 0f;
-    private float damageRate = 2f;
-
-
     void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             health = collision.gameObject.GetComponent<Health>();
-            Transform current = collision.transform;
-            while (health != null)
-            {
-                current = current.parent;
-                health = current.gameObject.GetComponent<Health>();
-            }
-            if (health != null)
-            {
-                collided = true;
-            }
-            Destroy(gameObject);
+            Damage();
         }
     }
 
-    void Update()
-    {
-        if (collided && Time.time >= nextTimeToDamage)
-        {
-            nextTimeToDamage = Time.time + 1f / damageRate;
-            FireDamage(health);
-        }
-    }
-
-    void FireDamage(Health health)
+    public void Damage()
     {
         if (health != null)
         {
+            float damage = health.currentHealth / 2;
             health.TakeDamage(damage);
         }
     }
-
 }

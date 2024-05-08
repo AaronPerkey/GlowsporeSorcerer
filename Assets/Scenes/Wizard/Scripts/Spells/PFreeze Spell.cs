@@ -6,44 +6,24 @@ using UnityEngine.AI;
 public class PFreezeSpell : MonoBehaviour
 {
     Health health;
-    NavMeshAgent agent;
-
-    private bool collided = false;
-
-    private float nextTimeToFreeze = 0f;
-    private float freezeTime = 3f;
-
-    private void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-
     void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Collision detected");
             health = collision.gameObject.GetComponent<Health>();
-            collided = true;
+            Damage();
         }
     }
 
-    void Update()
-    {
-        if (collided && Time.time >= nextTimeToFreeze)
-        {
-            Debug.Log("Freeze timer started");
-            nextTimeToFreeze = Time.time + freezeTime;
-            Freeze();
-        }
-    }
-
-    void Freeze()
+    public void Damage()
     {
         if (health != null)
         {
-            agent.isStopped = true;
+            float damage = health.currentHealth / 2;
+            Debug.Log("Damage: " + damage);
+            health.TakeDamage(damage);
         }
     }
 }

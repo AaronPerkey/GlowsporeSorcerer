@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordCollision : MonoBehaviour
+public class EZapSpell : MonoBehaviour
 {
     [HideInInspector]
     public float damage;
@@ -10,12 +10,10 @@ public class SwordCollision : MonoBehaviour
     {
         Health health;
         health = collision.gameObject.GetComponent<Health>();
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (health != null)
-            {
-                health.TakeDamage(damage);
-            }
+            health.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

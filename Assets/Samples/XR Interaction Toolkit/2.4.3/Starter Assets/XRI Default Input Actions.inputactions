@@ -2244,7 +2244,7 @@
                 {
                     "name": "",
                     "id": "d86c3061-1f07-45fe-b2de-44e2412232be",
-                    "path": "<XRController>{LeftHand}/gripPressed",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -2272,7 +2272,7 @@
                 {
                     "name": "",
                     "id": "bfa56629-f0b3-4a68-bcea-75980a64cbc6",
-                    "path": "<XRController>{RightHand}/gripPressed",
+                    "path": "<XRController>{RightHand}/{GripButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
