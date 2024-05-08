@@ -5,7 +5,7 @@ using UnityEngine;
 public class EZapSpell : MonoBehaviour
 {
     [HideInInspector]
-    public float damage;
+    public float damage = 5;
     void OnTriggerEnter(Collider collision)
     {
         Health health;
