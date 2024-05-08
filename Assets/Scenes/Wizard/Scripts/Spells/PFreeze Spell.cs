@@ -14,6 +14,7 @@ public class PFreezeSpell : MonoBehaviour
             Debug.Log("Collision detected");
             health = collision.gameObject.GetComponent<Health>();
             Damage();
+            Destroy(gameObject);
         }
     }
 
@@ -21,7 +22,7 @@ public class PFreezeSpell : MonoBehaviour
     {
         if (health != null)
         {
-            float damage = health.currentHealth / 2;
+            float damage = (health.maxHealth - health.currentHealth) / 2;
             Debug.Log("Damage: " + damage);
             health.TakeDamage(damage);
         }

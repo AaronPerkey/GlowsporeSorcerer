@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: changeSpellReference
       value: 
       objectReference: {fileID: 8779034307258760385, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 503931449522016850, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      propertyPath: spells.Array.data[2]
+      value: 
+      objectReference: {fileID: 8555829520932906699, guid: b643addad55287f47a4d76c2ab57c69c, type: 3}
     - target: {fileID: 2398030139614031575, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1152,6 +1156,32 @@ Transform:
   - {fileID: 473519267}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1899098312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7178153776163756822, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
+  m_PrefabInstance: {fileID: 8649811042660580834}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1899098321
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899098312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67b1b19af210ff640afbd2949f0406bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2042797517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4869842223334581125, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
@@ -1570,10 +1600,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7357840062156405577, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7178153776163756822, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1899098321}
   m_SourcePrefab: {fileID: 100100000, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
