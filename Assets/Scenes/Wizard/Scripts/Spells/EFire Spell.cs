@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
-public class FireSpell : MonoBehaviour
+public class EFireSpell : MonoBehaviour
 {
     Health health;
 
     [HideInInspector]
-    public float damage;
+    public float damage; 
     [HideInInspector]
     public bool collided = false;
     [HideInInspector]
@@ -21,7 +19,7 @@ public class FireSpell : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             health = collision.gameObject.GetComponent<Health>();
             collided = true;

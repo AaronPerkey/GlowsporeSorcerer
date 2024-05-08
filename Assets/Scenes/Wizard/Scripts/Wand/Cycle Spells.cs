@@ -39,7 +39,7 @@ public class CycleSpells : MonoBehaviour
         {
             collided = true;
 
-            OnButtonPress();
+           gripRightRefference.action.performed += OnButtonPress;
 
         }
 
@@ -53,17 +53,18 @@ public class CycleSpells : MonoBehaviour
         if (other.transform.gameObject.CompareTag("hand"))
         {
             collided = false;
-            OnButtonRelease();
+            gripRightRefference.action.performed += OnButtonRelease;
         }
     }
 
     /*
      * This method spawns the spell indicator(game object) on the tip of the wand
      */
-    private void OnButtonPress()
+    public void OnButtonPress(InputAction.CallbackContext context)
     {
         if (collided)
         {
+            Debug.Log("Collided: " + collided);
             SpellIndicator();
             changeSpellReference.action.performed += ChangeSpell;
         }
@@ -75,7 +76,7 @@ public class CycleSpells : MonoBehaviour
     /*
     * This method unspawns the spell indicator(game object) on the tip of the wand
     */
-    public void OnButtonRelease()
+    public void OnButtonRelease(InputAction.CallbackContext context)
     {
         Destroy(spellIndicator);
     }

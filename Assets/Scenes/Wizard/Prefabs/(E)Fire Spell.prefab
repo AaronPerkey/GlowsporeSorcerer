@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1728428244838876228}
   - component: {fileID: 3074193753238977581}
   - component: {fileID: 7012836307830524812}
+  - component: {fileID: -8786141703694854303}
   - component: {fileID: 7361957626229287944}
-  - component: {fileID: 1565108902347358493}
-  - component: {fileID: 6436367085138635754}
+  - component: {fileID: 1068146119019628237}
   m_Layer: 0
-  m_Name: (P)Freeze Spell
+  m_Name: (E)Fire Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c43c07145b3788747a8fabbee5504353, type: 2}
+  - {fileID: 2100000, guid: 25ae54f0ccbfb814c940d046d048e6c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,39 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7361957626229287944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5571768837017792384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff4f5a8991d7fa47baed5c5ff25979f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 35240ddf7602f4d45bae790d9d6fb14f, type: 2}
-  duration: 0.5
-  corner: 3
-  loop: 0
-  points:
-  - {x: 0.00000047683716, y: 0, z: -1.6691718}
-  - {x: 0.00000047683716, y: 0, z: 1.5762606}
-  - {x: -1.3468332, y: 0.9432459, z: -0.26863432}
---- !u!114 &1565108902347358493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5571768837017792384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8c4cad751f8984b8fcaace2c0e6e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &6436367085138635754
+--- !u!135 &-8786141703694854303
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,3 +135,38 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7361957626229287944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571768837017792384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff4f5a8991d7fa47baed5c5ff25979f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: b5ba04bad15d99143b61050e78e4bba1, type: 2}
+  duration: 0.5
+  corner: 3
+  loop: 0
+  points:
+  - {x: 0.00000047683716, y: 0, z: -1.6691718}
+  - {x: 0.00000047683716, y: 0, z: 1.5762606}
+  - {x: -1.3468332, y: 0.9432459, z: -0.26863432}
+--- !u!114 &1068146119019628237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571768837017792384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be29a3537f7ec9342a579432654dff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  collided: 0
+  amICollided: 0
