@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Product : MonoBehaviour
@@ -14,6 +15,7 @@ public class Product : MonoBehaviour
         AttackUpgrade
     }
     public ProductType type;
+    public TextMeshProUGUI shopText;
     Money money;
 
     // Start is called before the first frame update
@@ -37,14 +39,17 @@ public class Product : MonoBehaviour
                 if(type == ProductType.HealthUpgrade)
                 {
                     Debug.Log("buy health upgrade");
+                    shopText.text = "Pleasure doing business pal";
                 }
                 else if(type == ProductType.Heal)
                 {
                     Debug.Log("buy heal");
+                    shopText.text = "Pleasure doing business pal";
                 }
                 else if(type == ProductType.AttackUpgrade)
                 {
                     Debug.Log("buy attack upgrade");
+                    shopText.text = "Pleasure doing business pal";
                 }
             }
         }
