@@ -12,6 +12,7 @@ TagManager:
   - Wand
   - hand
   - Spawner
+  - Money
   layers:
   - Default
   - TransparentFX

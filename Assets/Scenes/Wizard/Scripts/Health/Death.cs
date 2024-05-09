@@ -15,6 +15,10 @@ public class Death : MonoBehaviour
     {
         health = gameObject.GetComponentInChildren<Health>();
         dropper = gameObject.GetComponent<CoinDropper>();
+        if (dropper == null)
+        {
+            Debug.LogError("COINDROPPER NOT FOUND");
+        }
     }
 
     // Update is called once per frame

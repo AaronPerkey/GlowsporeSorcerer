@@ -16,7 +16,7 @@ public class CoinDropper : MonoBehaviour
     {
         int maybe = Random.Range(0, 5);
         int coinAmount;
-        if (maybe >= 3)
+        if (maybe >= 2)
         {
             coinAmount = Random.Range(1, 5);
         }

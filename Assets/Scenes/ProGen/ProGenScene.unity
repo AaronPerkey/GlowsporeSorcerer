@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 20012623}
   - component: {fileID: 20012622}
   - component: {fileID: 20012621}
+  - component: {fileID: 20012624}
   m_Layer: 0
   m_Name: HealthUpgrade
   m_TagString: Untagged
@@ -151,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 20012619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1739998, y: 1.132, z: 4.1120005}
+  m_LocalPosition: {x: -1.1739998, y: 1.132, z: 3.8}
   m_LocalScale: {x: 0.65591, y: 0.65591, z: 0.65591}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -176,7 +177,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &20012622
@@ -229,6 +230,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20012619}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &20012624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20012619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e63919e7e1c48a368be32fc62e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 626287655}
+  price: 0
+  type: 0
 --- !u!4 &23686105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290576738945265619, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
@@ -1068,8 +1084,9 @@ GameObject:
   - component: {fileID: 362300690}
   - component: {fileID: 362300689}
   - component: {fileID: 362300688}
+  - component: {fileID: 362300691}
   m_Layer: 0
-  m_Name: HealthUpgrade (1)
+  m_Name: Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 362300686}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.077, y: 1.132, z: 4.1120005}
+  m_LocalPosition: {x: -0.077, y: 1.132, z: 3.8}
   m_LocalScale: {x: 0.65591, y: 0.65591, z: 0.65591}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1109,7 +1126,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &362300689
@@ -1162,6 +1179,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362300686}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &362300691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362300686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e63919e7e1c48a368be32fc62e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 626287655}
+  price: 0
+  type: 1
 --- !u!1001 &366640179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1419,6 +1451,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1290576738945265619, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
   m_PrefabInstance: {fileID: 1698776695}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &626287655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2423316683723644017, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+  m_PrefabInstance: {fileID: 1682378693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &626287662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626287655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c5f39e13dbd364ab1eb4b55ce27d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyAmount: 0
+  isColliding: 0
 --- !u!1 &627173843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8685700520257500872, guid: 797a1594a82821849bb7254ef822700a, type: 3}
@@ -2159,6 +2210,7 @@ GameObject:
   - component: {fileID: 988697914}
   - component: {fileID: 988697913}
   - component: {fileID: 988697912}
+  - component: {fileID: 988697915}
   m_Layer: 0
   m_Name: AttackUpgrade
   m_TagString: Untagged
@@ -2175,7 +2227,7 @@ Transform:
   m_GameObject: {fileID: 988697910}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 1.132, z: 4.1120005}
+  m_LocalPosition: {x: 1, y: 1.132, z: 3.8}
   m_LocalScale: {x: 0.65591, y: 0.65591, z: 0.65591}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2200,7 +2252,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &988697913
@@ -2253,6 +2305,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988697910}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &988697915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988697910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e63919e7e1c48a368be32fc62e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 626287655}
+  price: 0
+  type: 2
 --- !u!4 &1015440140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290576738945265619, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
@@ -2470,7 +2537,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 512a80abd421554488b3142aa8f5c16c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4106,6 +4173,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2423316683723644017, guid: 797a1594a82821849bb7254ef822700a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626287662}
     - targetCorrespondingSourceObject: {fileID: 6984621015659491411, guid: 797a1594a82821849bb7254ef822700a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1479132223}
@@ -4629,7 +4699,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 96f84dc94f4f18846bd6e7205b751093, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
