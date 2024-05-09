@@ -23,7 +23,7 @@ public class DungeonCreator : MonoBehaviour
    public GameObject Enemy;
    public GameObject goalPrefab;
    public GameObject TopRightRocks, TopLeftRocks, BottomRightRocks, BottomLeftRocks;
-   public float spawnMargin = 1f; // Adjust the margin value as needed
+   public float spawnMargin = 5f; // Adjust the margin value as needed
    List<Vector3Int> possibleDoorVerticalPosition;
    List<Vector3Int> possibleDoorHorizontalPosition;
    List<Vector3Int> possibleWallHorizontalPosition;
@@ -41,7 +41,6 @@ public class DungeonCreator : MonoBehaviour
    {
        CreateDungeon();
        floorNumber = 1;
-        Debug.Log("Hi");
     }
 
 
@@ -157,6 +156,10 @@ public class DungeonCreator : MonoBehaviour
             if (collider.gameObject.CompareTag("Enemy"))
             {
                 Destroy(collider.gameObject);
+                if(collider.gameObject.transform.parent != null && collider.gameObject.transform.parent.CompareTag("Enemy"))
+                {
+                    Destroy(collider.transform.parent.gameObject);
+                }
             }
         }
     }
@@ -173,10 +176,11 @@ public class DungeonCreator : MonoBehaviour
     private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
    {
        // Adjust the position of corners by spawnMargin
-       Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
-       Vector3 bottomRightV = new Vector3(topRightCorner.x - spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
-       Vector3 topLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, topRightCorner.y - spawnMargin);
-       Vector3 topRightV = new Vector3(topRightCorner.x - spawnMargin, 0, topRightCorner.y - spawnMargin);
+       int rockSpawnMargin = 1;
+       Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + rockSpawnMargin, 0, bottomLeftCorner.y + rockSpawnMargin);
+       Vector3 bottomRightV = new Vector3(topRightCorner.x - rockSpawnMargin, 0, bottomLeftCorner.y + rockSpawnMargin);
+       Vector3 topLeftV = new Vector3(bottomLeftCorner.x + rockSpawnMargin, 0, topRightCorner.y - rockSpawnMargin);
+       Vector3 topRightV = new Vector3(topRightCorner.x - rockSpawnMargin, 0, topRightCorner.y - rockSpawnMargin);
 
 
        // Instantiate rocks at the adjusted positions

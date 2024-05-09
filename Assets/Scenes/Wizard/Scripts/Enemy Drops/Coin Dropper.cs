@@ -38,11 +38,13 @@ public class CoinDropper : MonoBehaviour
 
     public void CoinDrop()
     {
-        int numberOfCoins = Amount();
-        for (int i = 0; i < numberOfCoins; i++)
+        if(enemy.transform != null)
         {
-            CoinSpawner();
+            int numberOfCoins = Amount();
+            for (int i = 0; i < numberOfCoins; i++)
+            {
+                CoinSpawner();
+            }
         }
-
     }
 }

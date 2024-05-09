@@ -245,6 +245,7 @@ MonoBehaviour:
   player: {fileID: 626287655}
   price: 0
   type: 0
+  shopText: {fileID: 1497972274}
 --- !u!4 &23686105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290576738945265619, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
@@ -627,7 +628,7 @@ GameObject:
   - component: {fileID: 197648882}
   - component: {fileID: 197648881}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: MirrorGuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,6 +1195,7 @@ MonoBehaviour:
   player: {fileID: 626287655}
   price: 0
   type: 1
+  shopText: {fileID: 1497972274}
 --- !u!1001 &366640179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2320,6 +2322,7 @@ MonoBehaviour:
   player: {fileID: 626287655}
   price: 0
   type: 2
+  shopText: {fileID: 1497972274}
 --- !u!4 &1015440140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1290576738945265619, guid: 38d64a5ee09a09442875c972048b1161, type: 3}
@@ -3169,13 +3172,13 @@ MonoBehaviour:
   wallWithSupport: {fileID: 6240206488090968454, guid: 67aee5a7d35f6ae4992bacdaed4866eb, type: 3}
   XRPlayer: {fileID: 627173843}
   xrOrigin: {fileID: 1618604155}
-  Enemy: {fileID: 5873812117934047566, guid: 1963a20c1a5f87f4d8735ce8e6c93d4c, type: 3}
+  Enemy: {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
   goalPrefab: {fileID: 8775699773672294659, guid: 611649193fbf2e349b13b02496763a72, type: 3}
   TopRightRocks: {fileID: 2892930720390958331, guid: 0166dfd6d1662492ba08745d79d06e61, type: 3}
   TopLeftRocks: {fileID: 6771356028852805186, guid: 0cbac50f627ba4385812ccb8b4adc6a5, type: 3}
   BottomRightRocks: {fileID: 3030154823170332179, guid: a2d0a98f22e0449669b4c9a85c4d081a, type: 3}
   BottomLeftRocks: {fileID: 6832100803230838005, guid: 38c1108765cc2496f8ea103d415a5901, type: 3}
-  spawnMargin: 1
+  spawnMargin: 5
   regenerate: 0
   floorNumber: 0
 --- !u!4 &1432575419 stripped
@@ -3441,7 +3444,7 @@ GameObject:
   - component: {fileID: 1497972275}
   - component: {fileID: 1497972274}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ShopText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
