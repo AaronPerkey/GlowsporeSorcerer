@@ -17,6 +17,7 @@ public class Product : MonoBehaviour
     public ProductType type;
     public TextMeshProUGUI shopText;
     Money money;
+    public TypewriterEffect typewriterEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -38,21 +39,44 @@ public class Product : MonoBehaviour
             {
                 if(type == ProductType.HealthUpgrade)
                 {
+
+                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
                     Debug.Log("buy health upgrade");
-                    shopText.text = "Pleasure doing business pal";
+                    money.moneyAmount -= price;
+                    
+
                 }
                 else if(type == ProductType.Heal)
                 {
+
+                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
                     Debug.Log("buy heal");
-                    shopText.text = "Pleasure doing business pal";
+                    
                 }
                 else if(type == ProductType.AttackUpgrade)
                 {
+
+                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
                     Debug.Log("buy attack upgrade");
-                    shopText.text = "Pleasure doing business pal";
+
                 }
             }
+            else
+            {
+                typewriterEffect.PrepareForNewText(shopText.gameObject);
+                StartCoroutine(ShowText("Sorry bud looks like you're a little broke. Better go kill some more monsters"));
+            }
         }
+    }
+
+    // Coroutine to display text with typewriter effect
+    IEnumerator ShowText(string text)
+    {
+        yield return new WaitForSeconds(0.5f); // Optional delay before starting the typewriter effect
+        typewriterEffect.GetComponent<TextMeshProUGUI>().text = text;
     }
 
 }

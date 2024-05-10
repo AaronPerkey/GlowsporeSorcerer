@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -23,6 +24,8 @@ public class DungeonCreator : MonoBehaviour
    public GameObject Enemy;
    public GameObject goalPrefab;
    public GameObject TopRightRocks, TopLeftRocks, BottomRightRocks, BottomLeftRocks;
+   public TextMeshProUGUI shopText;
+   public TypewriterEffect typewriterEffect;
    public float spawnMargin = 5f; // Adjust the margin value as needed
    List<Vector3Int> possibleDoorVerticalPosition;
    List<Vector3Int> possibleDoorHorizontalPosition;
@@ -170,8 +173,16 @@ public class DungeonCreator : MonoBehaviour
         Vector3 playerPosition = new Vector3(-15F, 0F, 5F);
         XRPlayer.transform.position = playerPosition;
         xrOrigin.transform.position = playerPosition;
+        typewriterEffect.PrepareForNewText(shopText.gameObject);
+        StartCoroutine(ShowText("Welcome to my shop traveler, please purchase some of my wares if you have the coin for it."));
     }
 
+    // Coroutine to display text with typewriter effect
+    IEnumerator ShowText(string text)
+    {
+        yield return new WaitForSeconds(0.5f); // Optional delay before starting the typewriter effect
+        typewriterEffect.GetComponent<TextMeshProUGUI>().text = text;
+    }
 
     private void createRocks(GameObject rockParent, Vector2 bottomLeftCorner, Vector2 topRightCorner)
    {
