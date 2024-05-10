@@ -30,15 +30,17 @@ public class CoinDropper : MonoBehaviour
 
     public void CoinSpawner()
     {
-        
-        GameObject spawnedCoin = Instantiate(coin);
-        spawnedCoin.transform.position = enemy.position;
-        spawnedCoin.GetComponent<Rigidbody>().velocity = enemy.up * m_Thrust;
+        if(enemy != null)
+        {
+            GameObject spawnedCoin = Instantiate(coin);
+            spawnedCoin.transform.position = enemy.position;
+            spawnedCoin.GetComponent<Rigidbody>().velocity = enemy.up * m_Thrust;
+        }
     }
 
     public void CoinDrop()
     {
-        if(enemy.transform != null)
+        if(enemy != null)
         {
             int numberOfCoins = Amount();
             for (int i = 0; i < numberOfCoins; i++)

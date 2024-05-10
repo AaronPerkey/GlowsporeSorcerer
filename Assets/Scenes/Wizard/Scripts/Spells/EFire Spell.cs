@@ -7,8 +7,6 @@ public class EFireSpell : MonoBehaviour
     Health health;
 
     [HideInInspector]
-    public float damage = 1; 
-    [HideInInspector]
     public bool collided = false;
     [HideInInspector]
     public bool amICollided = false;
@@ -39,7 +37,7 @@ public class EFireSpell : MonoBehaviour
     {
         if (health != null)
         {
-            health.TakeDamage(damage);
+            health.TakeDamage(1);
         }
     }
 }

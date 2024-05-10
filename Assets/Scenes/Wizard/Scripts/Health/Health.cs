@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        Debug.Log("Current health: " + currentHealth);
+        Debug.Log("Damage: " + damage);
         healthbar.UpdateHealthbar(maxHealth, currentHealth);
     }
 

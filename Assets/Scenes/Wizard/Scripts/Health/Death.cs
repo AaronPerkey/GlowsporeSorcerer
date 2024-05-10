@@ -24,23 +24,22 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position != null)
+        
+        if (invincible)
         {
-            if (invincible)
+            if (health.currentHealth <= 0)
             {
-                if (health.currentHealth <= 0)
-                {
-                    health.currentHealth = health.maxHealth;
-                }
-            }
-            if (health.currentHealth <= 0 && !invincible)
-            {
-                dropper.CoinDrop();
-                //Adjust volume with 3rd argument below
-                AudioSource.PlayClipAtPoint(EnemyDeathClip, transform.position);
-                Destroy(gameObject);
+                health.currentHealth = health.maxHealth;
             }
         }
+        if (health.currentHealth <= 0 && !invincible)
+        {
+            dropper.CoinDrop();
+            //Adjust volume with 3rd argument below
+            AudioSource.PlayClipAtPoint(EnemyDeathClip, transform.position);
+            Destroy(gameObject);
+        }
+        
         
     }
 }

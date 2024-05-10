@@ -31,7 +31,7 @@ public class GoalScript : MonoBehaviour
        {
             dungeonGenerator = dungeonGeneratorObj.GetComponent<DungeonCreator>();
             dungeonGenerator.regenerate = true;
-            Debug.Log(dungeonGenerator.floorNumber);
+            
             
        }
    }

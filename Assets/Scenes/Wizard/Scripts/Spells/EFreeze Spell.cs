@@ -21,8 +21,7 @@ public class EFreezeSpell : MonoBehaviour
     {
         if (health != null)
         {
-            float damage = health.currentHealth / 2;
-            health.TakeDamage(damage);
+            health.TakeDamage(10);
         }
     }
 }

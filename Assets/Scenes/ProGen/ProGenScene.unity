@@ -3175,7 +3175,11 @@ MonoBehaviour:
   wallWithSupport: {fileID: 6240206488090968454, guid: 67aee5a7d35f6ae4992bacdaed4866eb, type: 3}
   XRPlayer: {fileID: 627173843}
   xrOrigin: {fileID: 1618604155}
-  Enemy: {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
+  YellowShroomEnemy: {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
+  BlueShroomEnemy: {fileID: 3551096390941186049, guid: 0abe4a212a8059d4e89cf295db62b8e7, type: 3}
+  RedShroomEnemy: {fileID: 7563968254480468123, guid: 71141f5d4d61bf146abab010d92bbe52, type: 3}
+  SkullEnemy: {fileID: 4869842223334581125, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
+  ShroomSpawner: {fileID: 5363551300863074218, guid: ac1cf5f31ae1b1c4ebbebb41e4721e47, type: 3}
   goalPrefab: {fileID: 8775699773672294659, guid: 611649193fbf2e349b13b02496763a72, type: 3}
   TopRightRocks: {fileID: 2892930720390958331, guid: 0166dfd6d1662492ba08745d79d06e61, type: 3}
   TopLeftRocks: {fileID: 6771356028852805186, guid: 0cbac50f627ba4385812ccb8b4adc6a5, type: 3}
@@ -3183,7 +3187,8 @@ MonoBehaviour:
   BottomLeftRocks: {fileID: 6832100803230838005, guid: 38c1108765cc2496f8ea103d415a5901, type: 3}
   shopText: {fileID: 1497972274}
   typewriterEffect: {fileID: 1497972276}
-  spawnMargin: 5
+  spawnMargin: 6
+  areaNeededToSpawn: 500
   regenerate: 0
   floorNumber: 0
 --- !u!4 &1432575419 stripped

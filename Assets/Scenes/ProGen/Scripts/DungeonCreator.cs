@@ -21,12 +21,17 @@ public class DungeonCreator : MonoBehaviour
    public GameObject wallNoSupport, wallWithSupport;
    public GameObject XRPlayer;
    public GameObject xrOrigin;
-   public GameObject Enemy;
+   public GameObject YellowShroomEnemy;
+   public GameObject BlueShroomEnemy;
+   public GameObject RedShroomEnemy;
+   public GameObject SkullEnemy;
+   public GameObject ShroomSpawner;
    public GameObject goalPrefab;
    public GameObject TopRightRocks, TopLeftRocks, BottomRightRocks, BottomLeftRocks;
    public TextMeshProUGUI shopText;
    public TypewriterEffect typewriterEffect;
    public float spawnMargin = 5f; // Adjust the margin value as needed
+   public float areaNeededToSpawn;
    List<Vector3Int> possibleDoorVerticalPosition;
    List<Vector3Int> possibleDoorHorizontalPosition;
    List<Vector3Int> possibleWallHorizontalPosition;
@@ -35,7 +40,7 @@ public class DungeonCreator : MonoBehaviour
    [HideInInspector]
    public bool regenerate = false;
    [HideInInspector]
-   public int floorNumber;
+   public int floorNumber = 0;
     [HideInInspector]
    
     //This is a change
@@ -43,7 +48,6 @@ public class DungeonCreator : MonoBehaviour
    void Start()
    {
        CreateDungeon();
-       floorNumber = 1;
     }
 
 
@@ -63,6 +67,7 @@ public class DungeonCreator : MonoBehaviour
    {
        DestroyAllChildren();
        floorNumber++;
+        Debug.Log("Floor Number: " +  floorNumber);
        DungeonMaker generator = new DungeonMaker(dungeonWidth, dungeonLength);
        var listOfRoomsAndHallways = generator.CalculateDungeon(maxIterations,
            roomWidthMin,
@@ -210,9 +215,23 @@ public class DungeonCreator : MonoBehaviour
        Vector3 bottomLeftV = new Vector3(bottomLeftCorner.x + spawnMargin, 0, bottomLeftCorner.y + spawnMargin);
        Vector3 topRightV = new Vector3(topRightCorner.x - spawnMargin, 0, topRightCorner.y - spawnMargin);
 
+        // Calculate the area of the room
+        float roomWidth = Mathf.Abs(topRightCorner.x - bottomLeftCorner.x);
+        float roomHeight = Mathf.Abs(topRightCorner.y - bottomLeftCorner.y);
+        float roomArea = roomWidth * roomHeight;
+        
 
-       // Generate random points within the bounds of the room with margin
-       int numberOfEnemies = UnityEngine.Random.Range(1, 5); // Adjust as needed
+        if(roomArea >= areaNeededToSpawn)
+        {
+            // Calculate the midpoint of the room
+            float midX = (bottomLeftCorner.x + topRightCorner.x) / 2;
+            float midZ = (bottomLeftCorner.y + topRightCorner.y) / 2;
+            Vector3 spawnPosition = new Vector3(midX, 0, midZ);
+            GameObject newEnemy = Instantiate(ShroomSpawner, spawnPosition, Quaternion.identity, enemyParent.transform);
+        }
+
+        // Generate random points within the bounds of the room with margin
+        int numberOfEnemies = UnityEngine.Random.Range(1, 5); // Adjust as needed
       
        for (int i = 0; i < numberOfEnemies; i++)
        {
@@ -220,12 +239,68 @@ public class DungeonCreator : MonoBehaviour
            float randomZ = UnityEngine.Random.Range(bottomLeftCorner.y + spawnMargin, topRightCorner.y - spawnMargin);
            Vector3 spawnPosition = new Vector3(randomX, 0, randomZ);
 
-
-           // Instantiate enemy at the random position
-           GameObject newEnemy = Instantiate(Enemy, spawnPosition, Quaternion.identity, enemyParent.transform);
-
-
-          
+            if (floorNumber >= 5)
+            {
+                int x = UnityEngine.Random.Range(0, 4);
+                if (x == 0)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(YellowShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                else if (x == 1)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(RedShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                else if (x == 2)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(BlueShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                if (x == 3)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(SkullEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+            }
+            else if(floorNumber >= 4)
+            {
+                int x = UnityEngine.Random.Range(0, 3);
+                if (x == 0)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(YellowShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                else if (x == 1)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(RedShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                else if (x == 2)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(BlueShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+            }
+            else if (floorNumber >= 2)
+            {
+                int x = UnityEngine.Random.Range(0, 2);
+                if (x == 0)
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(YellowShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+                else
+                {
+                    // Instantiate enemy at the random position
+                    GameObject newEnemy = Instantiate(RedShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+                }
+            }
+            else
+            {
+                // Instantiate enemy at the random position
+                GameObject newEnemy = Instantiate(YellowShroomEnemy, spawnPosition, Quaternion.identity, enemyParent.transform);
+            }
        }
    }
 

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class EZapSpell : MonoBehaviour
 {
-    [HideInInspector]
-    public float damage = 5;
+    
     void OnTriggerEnter(Collider collision)
     {
-        Health health;
-        health = collision.gameObject.GetComponent<Health>();
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            health.TakeDamage(damage);
+            Health health;
+            health = collision.gameObject.GetComponent<Health>();
+            Debug.Log("I should be damaging the player right now");
+            health.TakeDamage(5);
             Destroy(gameObject);
         }
     }

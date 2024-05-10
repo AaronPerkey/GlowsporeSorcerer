@@ -51,10 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfEnemiesToSpawn: 5
   enemies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
+  - {fileID: 7563968254480468123, guid: 71141f5d4d61bf146abab010d92bbe52, type: 3}
+  - {fileID: 3551096390941186049, guid: 0abe4a212a8059d4e89cf295db62b8e7, type: 3}
+  - {fileID: 3992617812196137733, guid: 003e43e2f572b26489115762f6e47fcc, type: 3}
   spawnPoint: {fileID: 7803820163049437838}
   collided: 0
 --- !u!114 &2398668915886675398
@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 0.01, z: 7}
-  m_Center: {x: 0.46588516, y: -0.2464936, z: 0}
+  m_Size: {x: 13.738499, y: 0.67758584, z: 13.932508}
+  m_Center: {x: -0.26416206, y: 0.08729935, z: 0.1966629}
 --- !u!54 &4335149391285680686
 Rigidbody:
   m_ObjectHideFlags: 0
