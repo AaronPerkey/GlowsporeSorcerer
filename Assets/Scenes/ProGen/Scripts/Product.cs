@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Product : MonoBehaviour
@@ -17,58 +18,22 @@ public class Product : MonoBehaviour
     public ProductType type;
     public TextMeshProUGUI shopText;
     Money money;
+    PlayerPH playerPH;
     public TypewriterEffect typewriterEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         money = player.GetComponent<Money>();
+        playerPH = player.GetComponent<PlayerPH>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("hand"))
         {
-            if(money.moneyAmount >= price)
-            {
-                if(type == ProductType.HealthUpgrade)
-                {
-
-                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
-                    Debug.Log("buy health upgrade");
-                    money.moneyAmount -= price;
-                    
-
-                }
-                else if(type == ProductType.Heal)
-                {
-
-                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
-                    Debug.Log("buy heal");
-                    
-                }
-                else if(type == ProductType.AttackUpgrade)
-                {
-
-                    typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                    StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
-                    Debug.Log("buy attack upgrade");
-
-                }
-            }
-            else
-            {
-                typewriterEffect.PrepareForNewText(shopText.gameObject);
-                StartCoroutine(ShowText("Sorry bud looks like you're a little broke. Better go kill some more monsters"));
-            }
+            Shop();
         }
     }
 
@@ -79,4 +44,44 @@ public class Product : MonoBehaviour
         typewriterEffect.GetComponent<TextMeshProUGUI>().text = text;
     }
 
+    public void Shop()
+    {
+        if (money.moneyAmount >= price)
+        {
+            if (type == ProductType.HealthUpgrade)
+            {
+
+                typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                playerPH.IncreasePlayerHealth();
+                money.moneyAmount -= price;
+                Debug.Log("health: " + playerPH.health.maxHealth);
+
+            }
+            else if (type == ProductType.Heal)
+            {
+                Debug.Log("Hit Heal");
+                typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                playerPH.HealPlayerToMaxHealth();
+                money.moneyAmount -= price;
+                Debug.Log("heal: " + playerPH.health.currentHealth);
+            }
+            else if (type == ProductType.AttackUpgrade)
+            {
+                Debug.Log("Hit Attack");
+                typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
+                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                playerPH.IncreasePlayerDamage();
+                Debug.Log("Zap Damage: " + playerPH.zapSpell.damage);
+                money.moneyAmount -= price;
+
+            }
+        }
+        else
+        {
+            typewriterEffect.PrepareForNewText(shopText.gameObject);
+            StartCoroutine(ShowText("Sorry bud looks like you're a little broke. Better go kill some more monsters"));
+        }
+    }
 }

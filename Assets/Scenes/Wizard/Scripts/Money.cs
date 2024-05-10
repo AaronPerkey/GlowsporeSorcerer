@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Money : MonoBehaviour
@@ -7,10 +8,12 @@ public class Money : MonoBehaviour
     public int moneyAmount = 0;
     [HideInInspector]
     public bool isColliding = false;
+    public TextMeshProUGUI moneyLabel;
 
     private void Update()
     {
         isColliding = false;
+        moneyLabel.text = moneyAmount.ToString();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class PlayerPH : MonoBehaviour
 {
-    ZapSpell zapSpell;
-    EZapSpell eZapSpell;
-    FireSpell fireSpell;
-    EFireSpell eFireSpell;
-    SwordCollision swordCollision;
+    public ZapSpell zapSpell;
+    public FireSpell fireSpell;
+    public SwordCollision swordCollision;
 
-    Health health;
+    public Health health;
 
 
     private void Awake()
     {
-        zapSpell = GetComponent<ZapSpell>();
-        fireSpell = GetComponent<FireSpell>();
-        swordCollision = GetComponent<SwordCollision>();
-
         health = GetComponent<Health>();
 
         //set inital damage
@@ -37,4 +31,10 @@ public class PlayerPH : MonoBehaviour
     {
         health.maxHealth += 10;
     }
+
+    public void HealPlayerToMaxHealth()
+    {
+        health.currentHealth = health.maxHealth;
+    }
+
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8201175160371065988}
   - component: {fileID: 5029421933527989367}
   - component: {fileID: 859623391319945961}
+  - component: {fileID: 6726722936727467945}
   - component: {fileID: 5682442533490029122}
   - component: {fileID: 8027327047390432514}
   m_Layer: 8
@@ -109,6 +110,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6726722936727467945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2423316683723644017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca619282048b24e40b2b1bfd4f7a1563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dungeonGeneratorObj: {fileID: 0}
 --- !u!114 &5682442533490029122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168142743249570444, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_MoveSpeed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

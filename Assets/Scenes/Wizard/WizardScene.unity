@@ -1422,6 +1422,14 @@ PrefabInstance:
       propertyPath: enemies.Array.data[3]
       value: 
       objectReference: {fileID: 2042797517}
+    - target: {fileID: 5265743243756457237, guid: ac1cf5f31ae1b1c4ebbebb41e4721e47, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265743243756457237, guid: ac1cf5f31ae1b1c4ebbebb41e4721e47, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5363551300863074218, guid: ac1cf5f31ae1b1c4ebbebb41e4721e47, type: 3}
       propertyPath: m_Name
       value: Spawner_Mushroom_Enemy

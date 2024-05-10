@@ -40,19 +40,21 @@ public class DungeonCreator : MonoBehaviour
    [HideInInspector]
    public bool regenerate = false;
    [HideInInspector]
-   public int floorNumber = 0;
+   public float floorNumber = 1;
     [HideInInspector]
-   
-    //This is a change
-   // Start is called before the first frame update
-   void Start()
-   {
-       CreateDungeon();
+    public bool startbool = false;
+
+    //this is a change
+    //start is called before the first frame update
+    void start()
+    {
+        //CreateDungeon();
+        floorNumber ++;
     }
 
 
-   void Update(){
-       if (regenerate && (floorNumber % 5 == 0)){
+    void Update(){
+       if (regenerate && (floorNumber % 5f == 0f) && floorNumber != 0){
             MovePlayerToShop();
             regenerate = false;
        }else if (regenerate)
@@ -67,7 +69,6 @@ public class DungeonCreator : MonoBehaviour
    {
        DestroyAllChildren();
        floorNumber++;
-        Debug.Log("Floor Number: " +  floorNumber);
        DungeonMaker generator = new DungeonMaker(dungeonWidth, dungeonLength);
        var listOfRoomsAndHallways = generator.CalculateDungeon(maxIterations,
            roomWidthMin,
@@ -178,6 +179,17 @@ public class DungeonCreator : MonoBehaviour
         Vector3 playerPosition = new Vector3(-15F, 0F, 5F);
         XRPlayer.transform.position = playerPosition;
         xrOrigin.transform.position = playerPosition;
+        typewriterEffect.PrepareForNewText(shopText.gameObject);
+        StartCoroutine(ShowText("Welcome to my shop traveler, please purchase some of my wares if you have the coin for it."));
+    }
+
+    public void MovePlayerToStartRoom()
+    {
+        floorNumber = 1;
+        Vector3 playerPosition = new Vector3(-35, 0F, 5F);
+        XRPlayer.transform.position = playerPosition;
+        xrOrigin.transform.position = playerPosition;
+        Debug.Log("player position: " + XRPlayer.transform.position);
         typewriterEffect.PrepareForNewText(shopText.gameObject);
         StartCoroutine(ShowText("Welcome to my shop traveler, please purchase some of my wares if you have the coin for it."));
     }
