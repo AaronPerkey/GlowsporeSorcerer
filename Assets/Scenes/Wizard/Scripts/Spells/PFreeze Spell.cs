@@ -22,7 +22,7 @@ public class PFreezeSpell : MonoBehaviour
     {
         if (health != null)
         {
-            float damage = (health.maxHealth - health.currentHealth) / 2;
+            float damage = 10;
             Debug.Log("Damage: " + damage);
             health.TakeDamage(damage);
         }

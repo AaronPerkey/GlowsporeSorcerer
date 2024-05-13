@@ -783,6 +783,8 @@ MonoBehaviour:
   firespeed: 30
   lastShootTime: 0
   shootClip: {fileID: 8300000, guid: c5cf0f6bd8d423f4ba17fa9bb8ff3a6d, type: 3}
+  zapClip: {fileID: 8300000, guid: 49836a6b7d3f5264a983de58e2bb77dc, type: 3}
+  freezeClip: {fileID: 8300000, guid: a7fbea76acc2c97458e33ac6ca98c0b7, type: 3}
 --- !u!114 &8689605702526303238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,8 +800,6 @@ MonoBehaviour:
   shoot: {fileID: 0}
   spawnPoint: {fileID: 4102845290928625016}
   changeSpellReference: {fileID: 8779034307258760385, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  gripRightRefference: {fileID: 2080756911322263738, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  gripLeftRefference: {fileID: -5829007780466696157, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   spells:
   - {fileID: 5571768837017792384, guid: f0c8f01e59b2bbd46b128e13d0aa0a60, type: 3}
   - {fileID: 5571768837017792384, guid: c4af73ca71c0a264d907d60e0ed8f382, type: 3}

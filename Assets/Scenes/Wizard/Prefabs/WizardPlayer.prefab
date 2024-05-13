@@ -139,6 +139,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthbar: {fileID: 5311170158039945235}
+  playerHurt: {fileID: 8300000, guid: e07bd4e0e49e30249810cada3eba0d6b, type: 3}
+  playerHurt2: {fileID: 8300000, guid: 13797a08099f5f343a6199776a75cdb4, type: 3}
 --- !u!136 &8027327047390432514
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  swordHit: {fileID: 8300000, guid: a3b502960cc4c1d40b5814566062a1f2, type: 3}
 --- !u!114 &484265356649545933
 MonoBehaviour:
   m_ObjectHideFlags: 0

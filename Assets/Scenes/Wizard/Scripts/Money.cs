@@ -9,6 +9,7 @@ public class Money : MonoBehaviour
     [HideInInspector]
     public bool isColliding = false;
     public TextMeshProUGUI moneyLabel;
+    public AudioClip moneyAudio;
 
     private void Update()
     {
@@ -24,7 +25,7 @@ public class Money : MonoBehaviour
             isColliding = true;
             Destroy(other.gameObject);
             addMoney();
-            Debug.Log(moneyAmount);
+            AudioSource.PlayClipAtPoint(moneyAudio, transform.position, 0.25f);
         }
     }
 

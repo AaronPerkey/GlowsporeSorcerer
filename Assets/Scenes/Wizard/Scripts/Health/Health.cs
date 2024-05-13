@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] public float maxHealth;
     public float currentHealth;
     [SerializeField] public Healthbar healthbar;
+    public AudioClip playerHurt;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,13 @@ public class Health : MonoBehaviour
         currentHealth -= damage;
         Debug.Log("Current health: " + currentHealth);
         Debug.Log("Damage: " + damage);
+        if(gameObject.tag == "Player")
+        {
+            
+            AudioSource.PlayClipAtPoint(playerHurt, transform.position, 0.5f);
+            Debug.Log("Sound1");
+
+        }
         healthbar.UpdateHealthbar(maxHealth, currentHealth);
     }
 

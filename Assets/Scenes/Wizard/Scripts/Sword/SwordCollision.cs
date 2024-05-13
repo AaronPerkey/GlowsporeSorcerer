@@ -6,6 +6,7 @@ public class SwordCollision : MonoBehaviour
 {
     [HideInInspector]
     public float damage;
+    public AudioClip swordHit;
     void OnTriggerEnter(Collider collision)
     {
         Health health;
@@ -14,6 +15,7 @@ public class SwordCollision : MonoBehaviour
         {
             if (health != null)
             {
+                AudioSource.PlayClipAtPoint(swordHit, transform.position, 0.75f);
                 health.TakeDamage(damage);
             }
         }

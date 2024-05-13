@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 4869842223334581125, guid: f618be642f81e95499e1ba5eac0483f8, type: 3}
   spawnPoint: {fileID: 7803820163049437838}
   collided: 0
+  spawnNoise: {fileID: 8300000, guid: 1f5300fcde5ff304fafa39f1c0d31f0c, type: 3}
 --- !u!114 &2398668915886675398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +479,7 @@ MonoBehaviour:
   maxHealth: 40
   currentHealth: 0
   healthbar: {fileID: 3988806978287413491}
+  playerHurt: {fileID: 0}
 --- !u!64 &1477914802122410976
 MeshCollider:
   m_ObjectHideFlags: 0
