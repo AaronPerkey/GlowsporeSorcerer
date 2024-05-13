@@ -37,12 +37,6 @@ public class Product : MonoBehaviour
         }
     }
 
-    // Coroutine to display text with typewriter effect
-    IEnumerator ShowText(string text)
-    {
-        yield return new WaitForSeconds(0.5f); // Optional delay before starting the typewriter effect
-        typewriterEffect.GetComponent<TextMeshProUGUI>().text = text;
-    }
 
     public void Shop()
     {
@@ -52,7 +46,7 @@ public class Product : MonoBehaviour
             {
 
                 typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                typewriterEffect.GetComponent<TextMeshProUGUI>().text = "Pleasure doing business pal";
                 playerPH.IncreasePlayerHealth();
                 money.moneyAmount -= price;
                 Debug.Log("health: " + playerPH.health.maxHealth);
@@ -62,7 +56,7 @@ public class Product : MonoBehaviour
             {
                 Debug.Log("Hit Heal");
                 typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                typewriterEffect.GetComponent<TextMeshProUGUI>().text = "Pleasure doing business pal";
                 playerPH.HealPlayerToMaxHealth();
                 money.moneyAmount -= price;
                 Debug.Log("heal: " + playerPH.health.currentHealth);
@@ -71,7 +65,7 @@ public class Product : MonoBehaviour
             {
                 Debug.Log("Hit Attack");
                 typewriterEffect.PrepareForNewText(shopText.gameObject); // Call typewriter effect with the gameObject reference
-                StartCoroutine(ShowText("Pleasure doing business pal")); // Coroutine to show text with delay
+                typewriterEffect.GetComponent<TextMeshProUGUI>().text = "Pleasure doing business pal";
                 playerPH.IncreasePlayerDamage();
                 Debug.Log("Zap Damage: " + playerPH.zapSpell.damage);
                 money.moneyAmount -= price;
@@ -81,7 +75,7 @@ public class Product : MonoBehaviour
         else
         {
             typewriterEffect.PrepareForNewText(shopText.gameObject);
-            StartCoroutine(ShowText("Sorry bud looks like you're a little broke. Better go kill some more monsters"));
+            typewriterEffect.GetComponent<TextMeshProUGUI>().text = "Sorry bud looks like you're a little broke. Better go kill some more monsters";
         }
     }
 }
