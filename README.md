@@ -2,27 +2,12 @@
 
 ## Demo
 
-<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+## Demo
 
-  <div style="flex: 1; min-width: 400px; max-width: 560px; text-align: center;">
-    <b>Trailer</b><br>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/BgZIfqkDIxA" 
-      title="Trailer" frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
-    </iframe>
-  </div>
+| Trailer | Gameplay |
+| :-- | :-- |
+| <a href="https://www.youtube.com/watch?v=BgZIfqkDIxA"><img src="https://img.youtube.com/vi/BgZIfqkDIxA/0.jpg" alt="Trailer" width="100%"></a> | <a href="https://www.youtube.com/watch?v=bo4jIIpeAJE"><img src="https://img.youtube.com/vi/bo4jIIpeAJE/0.jpg" alt="Gameplay" width="100%"></a> |
 
-  <div style="flex: 1; min-width: 400px; max-width: 560px; text-align: center;">
-    <b>Gameplay</b><br>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/bo4jIIpeAJE" 
-      title="Gameplay" frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
-    </iframe>
-  </div>
-
-</div>
 
 ## Features
 
