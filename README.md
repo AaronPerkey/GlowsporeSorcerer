@@ -2,10 +2,10 @@
 
 ## Demo
 
-<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
 
-  <div style="flex: 1; min-width: 400px; max-width: 560px;">
-    <b>Trailer:</b><br>
+  <div style="flex: 1; min-width: 400px; max-width: 560px; text-align: center;">
+    <b>Trailer</b><br>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/BgZIfqkDIxA" 
       title="Trailer" frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -13,8 +13,8 @@
     </iframe>
   </div>
 
-  <div style="flex: 1; min-width: 400px; max-width: 560px;">
-    <b>Gameplay:</b><br>
+  <div style="flex: 1; min-width: 400px; max-width: 560px; text-align: center;">
+    <b>Gameplay</b><br>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/bo4jIIpeAJE" 
       title="Gameplay" frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
