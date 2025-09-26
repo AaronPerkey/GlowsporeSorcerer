@@ -2,23 +2,20 @@
 
 ## Demo
 
-<div style="display: flex; gap: 20px;">
-
-<div style="flex: 1; text-align: left;">
-  <b>Trailer:</b><br>
-  <a href="https://www.youtube.com/watch?v=BgZIfqkDIxA">
-    <img src="https://img.youtube.com/vi/BgZIfqkDIxA/0.jpg" alt="Trailer" width="100%" />
-  </a>
-</div>
-
-<div style="flex: 1; text-align: left;">
-  <b>Gameplay:</b><br>
-  <a href="https://www.youtube.com/watch?v=bo4jIIpeAJE">
-    <img src="https://img.youtube.com/vi/bo4jIIpeAJE/0.jpg" alt="Gameplay" width="100%" />
-  </a>
-</div>
-
-</div>
+<p align="center">
+  <div style="display: inline-block; text-align: left; margin: 0 20px;">
+    <b>Trailer:</b><br>
+    <a href="https://www.youtube.com/watch?v=BgZIfqkDIxA">
+      <img src="https://img.youtube.com/vi/BgZIfqkDIxA/0.jpg" alt="Trailer" width="400px" />
+    </a>
+  </div>
+  <div style="display: inline-block; text-align: left; margin: 0 20px;">
+    <b>Gameplay:</b><br>
+    <a href="https://www.youtube.com/watch?v=bo4jIIpeAJE">
+      <img src="https://img.youtube.com/vi/bo4jIIpeAJE/0.jpg" alt="Gameplay" width="400px" />
+    </a>
+  </div>
+</p>
 
 ## Features
 
