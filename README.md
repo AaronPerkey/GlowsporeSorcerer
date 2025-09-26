@@ -2,8 +2,8 @@
 
 ## Demo
 
-- [Trailer](https://www.youtube.com/watch?v=BgZIfqkDIxA)  
-- [Gameplay](https://www.youtube.com/watch?v=bo4jIIpeAJE)  
+[![Trailer](https://img.youtube.com/vi/BgZIfqkDIxA/0.jpg)](https://www.youtube.com/watch?v=BgZIfqkDIxA)  
+[![Gameplay](https://img.youtube.com/vi/bo4jIIpeAJE/0.jpg)](https://www.youtube.com/watch?v=bo4jIIpeAJE)  
 
 ## Features
 
