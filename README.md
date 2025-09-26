@@ -4,18 +4,22 @@
 
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
 
-  <div style="flex: 1; min-width: 300px; max-width: 500px; text-align: left;">
+  <div style="flex: 1; min-width: 400px; max-width: 560px;">
     <b>Trailer:</b><br>
-    <a href="https://www.youtube.com/watch?v=BgZIfqkDIxA">
-      <img src="https://img.youtube.com/vi/BgZIfqkDIxA/0.jpg" alt="Trailer" style="width:100%; height:auto;" />
-    </a>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/BgZIfqkDIxA" 
+      title="Trailer" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
   </div>
 
-  <div style="flex: 1; min-width: 300px; max-width: 500px; text-align: left;">
+  <div style="flex: 1; min-width: 400px; max-width: 560px;">
     <b>Gameplay:</b><br>
-    <a href="https://www.youtube.com/watch?v=bo4jIIpeAJE">
-      <img src="https://img.youtube.com/vi/bo4jIIpeAJE/0.jpg" alt="Gameplay" style="width:100%; height:auto;" />
-    </a>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/bo4jIIpeAJE" 
+      title="Gameplay" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
   </div>
 
 </div>
